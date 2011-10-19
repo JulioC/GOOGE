@@ -35,6 +35,7 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 # Object Files
 OBJECTFILES= \
 	${OBJECTDIR}/sources/Logger.o \
+	${OBJECTDIR}/sources/Object.o \
 	${OBJECTDIR}/main.o
 
 
@@ -66,6 +67,11 @@ ${OBJECTDIR}/sources/Logger.o: sources/Logger.cpp
 	${MKDIR} -p ${OBJECTDIR}/sources
 	${RM} $@.d
 	$(COMPILE.cc) -g -Iincludes -MMD -MP -MF $@.d -o ${OBJECTDIR}/sources/Logger.o sources/Logger.cpp
+
+${OBJECTDIR}/sources/Object.o: sources/Object.cpp 
+	${MKDIR} -p ${OBJECTDIR}/sources
+	${RM} $@.d
+	$(COMPILE.cc) -g -Iincludes -MMD -MP -MF $@.d -o ${OBJECTDIR}/sources/Object.o sources/Object.cpp
 
 ${OBJECTDIR}/main.o: main.cpp 
 	${MKDIR} -p ${OBJECTDIR}
