@@ -26,7 +26,7 @@ private:
     
     bool _quit;
     
-    VideoManager _videoManager;
+    VideoManager* _videoManager;
     
 };
 

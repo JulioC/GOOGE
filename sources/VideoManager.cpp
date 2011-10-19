@@ -4,6 +4,16 @@
 
 #include "Log.h"        
 
+VideoManager* VideoManager::_instance = NULL;
+
+VideoManager* VideoManager::instance() {
+    if(_instance == NULL) {
+        _instance = new VideoManager();
+    }
+    
+    return _instance;
+} 
+
 VideoManager::VideoManager():
 _screen(NULL),
 _SDLInitiated(false),
@@ -55,4 +65,8 @@ void VideoManager::release() {
     }
     
     _screen = NULL;
+}
+
+bool VideoManager::initiated() const {
+    return _SDLInitiated && _TTFInitiated;
 }

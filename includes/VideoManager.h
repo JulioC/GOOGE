@@ -6,15 +6,21 @@
 
 class VideoManager: public Object {
 public:
-    VideoManager();
+    static VideoManager* instance();
+    
     ~VideoManager();
     
     bool init(const int width, const int height, const char* title);
     void release();
     
+    bool initiated() const;
+    
 private:
+    VideoManager();
     VideoManager(const VideoManager&);
     const VideoManager& operator=(const VideoManager&);
+
+    static VideoManager* _instance;
     
     bool _SDLInitiated;
     bool _TTFInitiated;

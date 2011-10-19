@@ -25,7 +25,9 @@ bool Game::setup() {
         return false;
     }
     
-    if(!_videoManager.init(640, 480, "Amazing Wonderful Game")) {
+    _videoManager = VideoManager::instance();
+    _videoManager->init(640, 480, "Amazing Wonderful Game");
+    if(!_videoManager->initiated()) {
        return false;
     }
    
@@ -35,7 +37,7 @@ bool Game::setup() {
 }
 
 void Game::cleanup() {
-    _videoManager.release();
+    _videoManager->release();
     
     Log::message("Game cleanup", this);
 }
