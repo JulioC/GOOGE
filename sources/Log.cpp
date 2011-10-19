@@ -13,7 +13,7 @@ void Log::message(const char* msg, const Object* caller, bool show) {
         sprintf(_last, "%s", msg);
     }
     else {
-        sprintf(_last, "%s (0x%X)", msg, caller.id());
+        sprintf(_last, "%s (0x%08X)", msg, caller->id());
     }
     
     if(show) {
@@ -28,7 +28,7 @@ void Log::error(const char* msg, const Object* caller, bool show) {
         sprintf(_last, "[ERROR] %s", msg);
     }
     else {
-        sprintf(_last, "[ERROR] %s (0x%X)", msg, caller.id());
+        sprintf(_last, "[ERROR] %s (0x%08X)", msg, caller->id());
     }
     
     if(show) {

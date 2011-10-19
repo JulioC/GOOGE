@@ -34,10 +34,10 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
-	${OBJECTDIR}/sources/Logger.o \
 	${OBJECTDIR}/sources/Object.o \
 	${OBJECTDIR}/sources/Game.o \
-	${OBJECTDIR}/main.o
+	${OBJECTDIR}/main.o \
+	${OBJECTDIR}/sources/Log.o
 
 
 # C Compiler Flags
@@ -64,11 +64,6 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/googe: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/googe ${OBJECTFILES} ${LDLIBSOPTIONS} 
 
-${OBJECTDIR}/sources/Logger.o: sources/Logger.cpp 
-	${MKDIR} -p ${OBJECTDIR}/sources
-	${RM} $@.d
-	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/sources/Logger.o sources/Logger.cpp
-
 ${OBJECTDIR}/sources/Object.o: sources/Object.cpp 
 	${MKDIR} -p ${OBJECTDIR}/sources
 	${RM} $@.d
@@ -83,6 +78,11 @@ ${OBJECTDIR}/main.o: main.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} $@.d
 	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/main.o main.cpp
+
+${OBJECTDIR}/sources/Log.o: sources/Log.cpp 
+	${MKDIR} -p ${OBJECTDIR}/sources
+	${RM} $@.d
+	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/sources/Log.o sources/Log.cpp
 
 # Subprojects
 .build-subprojects:

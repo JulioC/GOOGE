@@ -1,6 +1,8 @@
 #ifndef LOG_H
 #define	LOG_H
 
+#include "Object.h"
+
 class Log {
 public:
     static void message(const char* msg, const Object* caller, bool show=false);
