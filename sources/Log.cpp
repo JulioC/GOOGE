@@ -1,5 +1,4 @@
 #include "Log.h"
-#include "Object.h"
 
 #include <iostream>
 #include <fstream>
@@ -8,7 +7,7 @@
 const char* Log::_filename = "./log";
 char Log::_last[256] = {0};
 
-void Log::message(const char* msg, const Object* caller, bool show) {
+void Log::message(const char* msg, const Object* caller, bool show) {    
     if(caller == NULL) {
         sprintf(_last, "%s", msg);
     }
