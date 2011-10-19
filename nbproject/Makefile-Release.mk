@@ -36,6 +36,7 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 OBJECTFILES= \
 	${OBJECTDIR}/sources/Logger.o \
 	${OBJECTDIR}/sources/Object.o \
+	${OBJECTDIR}/sources/Game.o \
 	${OBJECTDIR}/main.o
 
 
@@ -72,6 +73,11 @@ ${OBJECTDIR}/sources/Object.o: sources/Object.cpp
 	${MKDIR} -p ${OBJECTDIR}/sources
 	${RM} $@.d
 	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/sources/Object.o sources/Object.cpp
+
+${OBJECTDIR}/sources/Game.o: sources/Game.cpp 
+	${MKDIR} -p ${OBJECTDIR}/sources
+	${RM} $@.d
+	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/sources/Game.o sources/Game.cpp
 
 ${OBJECTDIR}/main.o: main.cpp 
 	${MKDIR} -p ${OBJECTDIR}
