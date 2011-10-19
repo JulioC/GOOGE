@@ -3,8 +3,8 @@
 
 class Log {
 public:
-    static void message(const char* msg, unsigned int caller=-1, bool show=false);
-    static void error(const char* msg, unsigned int caller=-1, bool show=true);
+    static void message(const char* msg, const Object* caller, bool show=false);
+    static void error(const char* msg, const Object* caller, bool show=true);
 
     static const char* last();
     

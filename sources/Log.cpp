@@ -1,4 +1,5 @@
 #include "Log.h"
+#include "Object.h"
 
 #include <iostream>
 #include <fstream>
@@ -7,8 +8,13 @@
 const char* Log::_filename = "./log";
 char Log::_last[256] = {0};
 
-void Log::message(const char* msg, unsigned int caller, bool show) {
-    sprintf(_last, "%s (0x%X)", msg, caller);
+void Log::message(const char* msg, const Object* caller, bool show) {
+    if(caller == NULL) {
+        sprintf(_last, "%s", msg);
+    }
+    else {
+        sprintf(_last, "%s (0x%X)", msg, caller.id());
+    }
     
     if(show) {
         std::cout << _last << std::endl;
@@ -17,8 +23,13 @@ void Log::message(const char* msg, unsigned int caller, bool show) {
     write(_last);
 }
 
-void Log::error(const char* msg, unsigned int caller, bool show) {
-    sprintf(_last, "[ERROR] %s (0x%X)", msg, caller);
+void Log::error(const char* msg, const Object* caller, bool show) {
+    if(caller == NULL) {
+        sprintf(_last, "[ERROR] %s", msg);
+    }
+    else {
+        sprintf(_last, "[ERROR] %s (0x%X)", msg, caller.id());
+    }
     
     if(show) {
         std::cout << _last << std::endl;
