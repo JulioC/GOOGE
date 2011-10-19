@@ -14,7 +14,7 @@ void Logger::log(const char* message, unsigned int caller, bool show) {
         std::cout << _last << std::endl;
     }
     
-    Logger::write(_last);
+    write(_last);
 }
 
 void Logger::error(const char* message, unsigned int caller, bool show) {
@@ -24,7 +24,7 @@ void Logger::error(const char* message, unsigned int caller, bool show) {
         std::cout << _last << std::endl;
     }
     
-    Logger::write(_last);
+    write(_last);
 } 
 
 void Logger::write(const char* message) {
