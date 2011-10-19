@@ -20,23 +20,22 @@ Game::~Game() {
 }
 
 bool Game::setup() {
-    
-    Log::message("Game setup", this);
-    
-    if(SDL_Init(SDL_INIT_VIDEO|SDL_INIT_AUDIO) == -1) {
-        Log::error("Unable to initialize the SDL",this);
+    if(SDL_Init(0) == -1) {
+        Log::error("Unable to initialize the SDL", this);
         return false;
     }
     
-    if(!(_videomanager.init(640,480,"Amazing Wonderful Game"))) {
+    if(!_videoManager.init(640, 480, "Amazing Wonderful Game")) {
        return false;
     }
-    
+   
+    Log::message("Game setup", this);
+ 
     return true;
 }
 
 void Game::cleanup() {
-    
+    _videoManager.release();
     
     Log::message("Game cleanup", this);
 }

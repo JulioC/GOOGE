@@ -16,6 +16,9 @@ private:
     VideoManager(const VideoManager&);
     const VideoManager& operator=(const VideoManager&);
     
+    bool _SDLInitiated;
+    bool _TTFInitiated;
+    
     SDL_Surface* _screen;
     
 };
