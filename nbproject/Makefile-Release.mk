@@ -37,7 +37,8 @@ OBJECTFILES= \
 	${OBJECTDIR}/sources/Object.o \
 	${OBJECTDIR}/sources/Game.o \
 	${OBJECTDIR}/main.o \
-	${OBJECTDIR}/sources/Log.o
+	${OBJECTDIR}/sources/Log.o \
+	${OBJECTDIR}/sources/VideoManager.o
 
 
 # C Compiler Flags
@@ -83,6 +84,11 @@ ${OBJECTDIR}/sources/Log.o: sources/Log.cpp
 	${MKDIR} -p ${OBJECTDIR}/sources
 	${RM} $@.d
 	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/sources/Log.o sources/Log.cpp
+
+${OBJECTDIR}/sources/VideoManager.o: sources/VideoManager.cpp 
+	${MKDIR} -p ${OBJECTDIR}/sources
+	${RM} $@.d
+	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/sources/VideoManager.o sources/VideoManager.cpp
 
 # Subprojects
 .build-subprojects:

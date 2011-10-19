@@ -23,6 +23,15 @@ bool Game::setup() {
     
     Log::message("Game setup", this);
     
+    if(SDL_Init(SDL_INIT_VIDEO|SDL_INIT_AUDIO) == -1) {
+        Log::error("Unable to initialize the SDL",this);
+        return false;
+    }
+    
+    if(!(_videomanager.init(640,480,"Amazing Wonderful Game"))) {
+       return false;
+    }
+    
     return true;
 }
 

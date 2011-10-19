@@ -2,6 +2,7 @@
 #define	GAME_H
 
 #include "Object.h"
+#include "VideoManager.h"
 
 class Game: public Object {
 public:
@@ -24,6 +25,9 @@ private:
     static Game* _instance;
     
     bool _quit;
+    
+    VideoManager _videomanager;
+    
 };
 
 #endif	/* GAME_H */
