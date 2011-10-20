@@ -46,11 +46,14 @@ void InputManager::release() {
 }
 
 void InputManager::update() {
+    // No events need to be catch
     while(SDL_PollEvent(&_event)) {
         if(_event.type == SDL_QUIT) {
             _terminated = true;
         }
     }
+    
+    // The _keystate will update on calling for PollEvent
 }
 
 bool InputManager::initiated() const {
