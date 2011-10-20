@@ -25,19 +25,20 @@ Game::~Game() {
 bool Game::setup() {
     if(SDL_Init(0) == -1) {
         Log::error("Unable to initialize the SDL", this);
+        Log::error(SDL_GetError(), this);
         return false;
     }
     
     _video = VideoManager::instance();
     _video->init(640, 480, "Amazing Wonderful Game");
     if(!_video->initiated()) {
-       return false;
+        return false;
     }
     
     _input = InputManager::instance();
     _input->init();
     if(!_input->initiated()) {
-       return false;
+        return false;
     }
    
     Log::message("Game setup", this);

@@ -32,6 +32,7 @@ bool VideoManager::init(const int width, const int height, const char* title) {
 
         if(_screen == NULL) {
             Log::error("Unable to get the video device", this);
+            Log::error(SDL_GetError(), this);
             return false;
         }
         
@@ -41,6 +42,7 @@ bool VideoManager::init(const int width, const int height, const char* title) {
     if(!_TTFInitiated) {
         if(TTF_Init() == -1) {
             Log::error("Unable to load font manager", this);
+            Log::error(SDL_GetError(), this);
             return false;
         }
         
@@ -71,7 +73,10 @@ void VideoManager::release() {
 }
 
 void VideoManager::update() {
-    SDL_Flip(_screen);
+    if(!SDL_Flip(_screen) == -1) {
+        Log::error("Failed to vsync", this);
+        Log::error(SDL_GetError(), this);
+    }
 }
 
 bool VideoManager::initiated() const {
