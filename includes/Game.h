@@ -3,6 +3,7 @@
 
 #include "Object.h"
 #include "VideoManager.h"
+#include "InputManager.h"
 
 class Game: public Object {
 public:
@@ -27,6 +28,7 @@ private:
     bool _quit;
     
     VideoManager* _videoManager;
+    InputManager* _inputManager;
     
 };
 

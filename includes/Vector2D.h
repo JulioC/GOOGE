@@ -14,7 +14,7 @@ public:
     
     // @TODO: Implement vector operations 
 
-    float x, y;
+    float _x, _y;
     
 private:
     Vector2D(const Vector2D& orig);

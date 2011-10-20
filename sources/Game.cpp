@@ -13,10 +13,11 @@ Game* Game::instance() {
     return _instance;
 }
 
-Game::Game() {
+Game::Game(){
 }
 
 Game::~Game() {
+    cleanup();
 }
 
 bool Game::setup() {
@@ -30,6 +31,12 @@ bool Game::setup() {
     if(!_videoManager->initiated()) {
        return false;
     }
+    
+    _inputManager = InputManager::instance();
+    _inputManager->init();
+    if(!_inputManager->initiated()) {
+       return false;
+    }
    
     Log::message("Game setup", this);
  
@@ -38,12 +45,15 @@ bool Game::setup() {
 
 void Game::cleanup() {
     _videoManager->release();
+    _inputManager->release();
     
     Log::message("Game cleanup", this);
 }
 
 void Game::run() {
+    _inputManager->update();
     
+    _quit = _inputManager->terminated();
 }
 
 bool Game::running() const {

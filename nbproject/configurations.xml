@@ -5,8 +5,10 @@
                    displayName="Header Files"
                    projectFiles="true">
       <itemPath>includes/Game.h</itemPath>
+      <itemPath>includes/InputManager.h</itemPath>
       <itemPath>includes/Log.h</itemPath>
       <itemPath>includes/Object.h</itemPath>
+      <itemPath>includes/Vector2D.h</itemPath>
       <itemPath>includes/VideoManager.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
@@ -17,8 +19,10 @@
                    displayName="Source Files"
                    projectFiles="true">
       <itemPath>sources/Game.cpp</itemPath>
+      <itemPath>sources/InputManager.cpp</itemPath>
       <itemPath>sources/Log.cpp</itemPath>
       <itemPath>sources/Object.cpp</itemPath>
+      <itemPath>sources/Vector2D.cpp</itemPath>
       <itemPath>sources/VideoManager.cpp</itemPath>
       <itemPath>main.cpp</itemPath>
     </logicalFolder>

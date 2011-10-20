@@ -21,6 +21,7 @@ _TTFInitiated(false) {
 }
 
 VideoManager::~VideoManager() {
+    release();
 }
 
 bool VideoManager::init(const int width, const int height, const char* title) {
@@ -48,7 +49,7 @@ bool VideoManager::init(const int width, const int height, const char* title) {
     
     SDL_WM_SetCaption(title, NULL);
     
-    Log::message("Video device initialized", this);
+    Log::message("VideoManager initiated", this);
     
     return true;
 }
@@ -63,6 +64,8 @@ void VideoManager::release() {
         SDL_Quit();
         _SDLInitiated = false;
     }
+
+    Log::message("VideoManager released", this);
     
     _screen = NULL;
 }

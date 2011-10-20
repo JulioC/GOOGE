@@ -34,11 +34,13 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
+	${OBJECTDIR}/sources/Vector2D.o \
 	${OBJECTDIR}/sources/Object.o \
 	${OBJECTDIR}/sources/Game.o \
 	${OBJECTDIR}/main.o \
 	${OBJECTDIR}/sources/Log.o \
-	${OBJECTDIR}/sources/VideoManager.o
+	${OBJECTDIR}/sources/VideoManager.o \
+	${OBJECTDIR}/sources/InputManager.o
 
 
 # C Compiler Flags
@@ -65,6 +67,11 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/googe: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/googe ${OBJECTFILES} ${LDLIBSOPTIONS} 
 
+${OBJECTDIR}/sources/Vector2D.o: sources/Vector2D.cpp 
+	${MKDIR} -p ${OBJECTDIR}/sources
+	${RM} $@.d
+	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/sources/Vector2D.o sources/Vector2D.cpp
+
 ${OBJECTDIR}/sources/Object.o: sources/Object.cpp 
 	${MKDIR} -p ${OBJECTDIR}/sources
 	${RM} $@.d
@@ -89,6 +96,11 @@ ${OBJECTDIR}/sources/VideoManager.o: sources/VideoManager.cpp
 	${MKDIR} -p ${OBJECTDIR}/sources
 	${RM} $@.d
 	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/sources/VideoManager.o sources/VideoManager.cpp
+
+${OBJECTDIR}/sources/InputManager.o: sources/InputManager.cpp 
+	${MKDIR} -p ${OBJECTDIR}/sources
+	${RM} $@.d
+	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/sources/InputManager.o sources/InputManager.cpp
 
 # Subprojects
 .build-subprojects:
