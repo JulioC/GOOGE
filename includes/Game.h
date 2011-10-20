@@ -18,6 +18,8 @@ public:
     
     bool running() const;
     
+// @TODO: Create scene management    
+    
 private:
     Game();
     Game(const Game& orig);

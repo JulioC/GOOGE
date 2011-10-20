@@ -28,7 +28,7 @@ bool VideoManager::init(const int width, const int height, const char* title) {
     SDL_InitSubSystem(SDL_INIT_VIDEO);
     
     if(!_SDLInitiated) {
-        _screen = SDL_SetVideoMode(width, height, 32, SDL_HWSURFACE|SDL_DOUBLEBUF);
+        _screen = SDL_SetVideoMode(width, height, 0, SDL_HWSURFACE|SDL_DOUBLEBUF);
 
         if(_screen == NULL) {
             Log::error("Unable to get the video device", this);
@@ -68,6 +68,10 @@ void VideoManager::release() {
     Log::message("VideoManager released", this);
     
     _screen = NULL;
+}
+
+void VideoManager::update() {
+    SDL_Flip(_screen);
 }
 
 bool VideoManager::initiated() const {

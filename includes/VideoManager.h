@@ -12,7 +12,9 @@ public:
     
     bool init(const int width, const int height, const char* title);
     void release();
-    
+
+    void update();
+
     bool initiated() const;
     
 private:

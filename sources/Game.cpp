@@ -55,6 +55,8 @@ void Game::cleanup() {
 void Game::run() {
     _input->update();
     
+    _video->update();
+    
     _quit = _input->terminated();
 }
 
