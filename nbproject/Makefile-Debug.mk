@@ -34,6 +34,7 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
+	${OBJECTDIR}/sources/Scene.o \
 	${OBJECTDIR}/sources/Vector2D.o \
 	${OBJECTDIR}/sources/Object.o \
 	${OBJECTDIR}/sources/Game.o \
@@ -66,6 +67,11 @@ LDLIBSOPTIONS=-lSDL -lSDL_image -lSDL_ttf -lSDL_mixer
 ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/googe: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/googe ${OBJECTFILES} ${LDLIBSOPTIONS} 
+
+${OBJECTDIR}/sources/Scene.o: sources/Scene.cpp 
+	${MKDIR} -p ${OBJECTDIR}/sources
+	${RM} $@.d
+	$(COMPILE.cc) -g -Iincludes -MMD -MP -MF $@.d -o ${OBJECTDIR}/sources/Scene.o sources/Scene.cpp
 
 ${OBJECTDIR}/sources/Vector2D.o: sources/Vector2D.cpp 
 	${MKDIR} -p ${OBJECTDIR}/sources
