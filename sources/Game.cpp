@@ -17,9 +17,10 @@ Game* Game::instance() {
 Game::Game():
 _video(NULL),
 _input(NULL),
-_quit(false),
+_ended(false),
 _scenes(),
-_activeScene(NULL) {
+_activeScenes(),
+_currentScene(NULL) {
 }
 
 Game::~Game() {
@@ -44,6 +45,8 @@ bool Game::setup() {
     if(!_input->initiated()) {
         return false;
     }
+    
+    _ended = false;
    
     Log::message("Game setup", this);
  
@@ -51,19 +54,32 @@ bool Game::setup() {
 }
 
 void Game::cleanup() {
+    // Release any activeScene on the stack
+    while(!_activeScenes.empty()) {
+        Scene* scene = _activeScenes.top();
+        scene->release();
+        _activeScenes.pop();
+    }
+    _currentScene = NULL;
+    
+    _scenes.clear();
+    
     _video->release();
+    _video = NULL;
+    
     _input->release();
+    _input = NULL;
     
     Log::message("Game cleanup", this);
 }
 
 void Game::run() {
     _input->update();
-    _quit = _input->terminated();
+    _ended = _input->terminated();
     
     if(_activeScene == NULL) {
         Log::error("No active scene", this);
-        _quit = true;
+        _ended = true;
     }
     else {
         _activeScene->update();
@@ -73,7 +89,7 @@ void Game::run() {
     _video->update();
 }
 
-bool Game::running() const {
-    return !_quit;
+bool Game::ended() const {
+    return _ended;
 }
 

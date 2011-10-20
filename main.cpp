@@ -9,7 +9,7 @@ int main(int argc, char** argv) {
         return 1;
     }
     
-    while(game->running()) {
+    while(game->ended()) {
         game->run();
     }
     

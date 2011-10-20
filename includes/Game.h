@@ -1,6 +1,7 @@
 #ifndef GAME_H
 #define	GAME_H
 
+#include <stack>
 #include <vector>
 
 #include "Object.h"
@@ -19,11 +20,11 @@ public:
     
     void run();
     
-    bool running() const;
+    bool ended() const;
     
 // @TODO: Create scene management
     bool activeScene(int index, bool temp=false);
-    Scene* activeScene();
+    Scene* currentScene();
     
 private:
     Game();
@@ -32,13 +33,16 @@ private:
     
     static Game* _instance;
     
-    bool _quit;
+    bool _ended;
     
     VideoManager* _video;
     InputManager* _input;
     
     std::vector<Scene*> _scenes;
-    Scene* _activeScene;
+    std::stack<Scene*> _activeScenes;
+    Scene* _currentScene;
+    
+    
     
 };
 
