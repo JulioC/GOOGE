@@ -1,9 +1,12 @@
 #ifndef GAME_H
 #define	GAME_H
 
+#include <vector>
+
 #include "Object.h"
 #include "VideoManager.h"
 #include "InputManager.h"
+#include "Scene.h"
 
 class Game: public Object {
 public:
@@ -18,7 +21,9 @@ public:
     
     bool running() const;
     
-// @TODO: Create scene management    
+// @TODO: Create scene management
+    bool activeScene(int index, bool temp=false);
+    Scene* activeScene();
     
 private:
     Game();
@@ -31,6 +36,9 @@ private:
     
     VideoManager* _video;
     InputManager* _input;
+    
+    std::vector<Scene*> _scenes;
+    Scene* _activeScene;
     
 };
 

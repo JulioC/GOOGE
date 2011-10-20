@@ -2,6 +2,7 @@
 
 #include "Game.h"
 #include "Log.h"
+#include "Scene.h"
 
 Game* Game::_instance = NULL;
 
@@ -15,7 +16,10 @@ Game* Game::instance() {
 
 Game::Game():
 _video(NULL),
-_input(NULL) {
+_input(NULL),
+_quit(false),
+_scenes(),
+_activeScene(NULL) {
 }
 
 Game::~Game() {
@@ -55,10 +59,18 @@ void Game::cleanup() {
 
 void Game::run() {
     _input->update();
+    _quit = _input->terminated();
+    
+    if(_activeScene == NULL) {
+        Log::error("No active scene", this);
+        _quit = true;
+    }
+    else {
+        _activeScene->update();
+        _activeScene->draw();
+    }
     
     _video->update();
-    
-    _quit = _input->terminated();
 }
 
 bool Game::running() const {

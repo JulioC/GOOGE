@@ -16,6 +16,7 @@ public:
     virtual void release();
     
     virtual void update() = 0;
+    virtual void draw() = 0;
     
     void videoManager(VideoManager* video);
     void inputManager(InputManager* input);
