@@ -13,7 +13,9 @@ Game* Game::instance() {
     return _instance;
 }
 
-Game::Game(){
+Game::Game():
+_video(NULL),
+_input(NULL) {
 }
 
 Game::~Game() {
@@ -26,15 +28,15 @@ bool Game::setup() {
         return false;
     }
     
-    _videoManager = VideoManager::instance();
-    _videoManager->init(640, 480, "Amazing Wonderful Game");
-    if(!_videoManager->initiated()) {
+    _video = VideoManager::instance();
+    _video->init(640, 480, "Amazing Wonderful Game");
+    if(!_video->initiated()) {
        return false;
     }
     
-    _inputManager = InputManager::instance();
-    _inputManager->init();
-    if(!_inputManager->initiated()) {
+    _input = InputManager::instance();
+    _input->init();
+    if(!_input->initiated()) {
        return false;
     }
    
@@ -44,16 +46,16 @@ bool Game::setup() {
 }
 
 void Game::cleanup() {
-    _videoManager->release();
-    _inputManager->release();
+    _video->release();
+    _input->release();
     
     Log::message("Game cleanup", this);
 }
 
 void Game::run() {
-    _inputManager->update();
+    _input->update();
     
-    _quit = _inputManager->terminated();
+    _quit = _input->terminated();
 }
 
 bool Game::running() const {
