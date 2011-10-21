@@ -22,14 +22,16 @@ public:
     
     bool ended() const;
     
+protected:
+    Game();
+    
     int addScene(Scene* scene);
     bool removeScene(int index);
     bool activeScene(int index);
-    
+
 private:
-    Game();
-    Game(const Game& orig);
-    const Game& operator=(const Game& orig);
+    Game(const Game&);
+    const Game& operator=(const Game&);
     
     void releaseScenes();
     
