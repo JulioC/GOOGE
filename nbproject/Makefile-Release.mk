@@ -38,7 +38,6 @@ OBJECTFILES= \
 	${OBJECTDIR}/sources/Vector2D.o \
 	${OBJECTDIR}/sources/Object.o \
 	${OBJECTDIR}/sources/Game.o \
-	${OBJECTDIR}/main.o \
 	${OBJECTDIR}/sources/Log.o \
 	${OBJECTDIR}/sources/VideoManager.o \
 	${OBJECTDIR}/sources/InputManager.o
@@ -87,11 +86,6 @@ ${OBJECTDIR}/sources/Game.o: sources/Game.cpp
 	${MKDIR} -p ${OBJECTDIR}/sources
 	${RM} $@.d
 	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/sources/Game.o sources/Game.cpp
-
-${OBJECTDIR}/main.o: main.cpp 
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} $@.d
-	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/main.o main.cpp
 
 ${OBJECTDIR}/sources/Log.o: sources/Log.cpp 
 	${MKDIR} -p ${OBJECTDIR}/sources

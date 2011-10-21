@@ -38,7 +38,6 @@ OBJECTFILES= \
 	${OBJECTDIR}/sources/Vector2D.o \
 	${OBJECTDIR}/sources/Object.o \
 	${OBJECTDIR}/sources/Game.o \
-	${OBJECTDIR}/main.o \
 	${OBJECTDIR}/sources/Log.o \
 	${OBJECTDIR}/sources/VideoManager.o \
 	${OBJECTDIR}/sources/InputManager.o
@@ -62,11 +61,13 @@ LDLIBSOPTIONS=-lSDL -lSDL_image -lSDL_ttf -lSDL_mixer
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}
-	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/googe
+	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libgooge.a
 
-${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/googe: ${OBJECTFILES}
+${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libgooge.a: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
-	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/googe ${OBJECTFILES} ${LDLIBSOPTIONS} 
+	${RM} ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libgooge.a
+	${AR} -rv ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libgooge.a ${OBJECTFILES} 
+	$(RANLIB) ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libgooge.a
 
 ${OBJECTDIR}/sources/Scene.o: sources/Scene.cpp 
 	${MKDIR} -p ${OBJECTDIR}/sources
@@ -87,11 +88,6 @@ ${OBJECTDIR}/sources/Game.o: sources/Game.cpp
 	${MKDIR} -p ${OBJECTDIR}/sources
 	${RM} $@.d
 	$(COMPILE.cc) -g -Iincludes -MMD -MP -MF $@.d -o ${OBJECTDIR}/sources/Game.o sources/Game.cpp
-
-${OBJECTDIR}/main.o: main.cpp 
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} $@.d
-	$(COMPILE.cc) -g -Iincludes -MMD -MP -MF $@.d -o ${OBJECTDIR}/main.o main.cpp
 
 ${OBJECTDIR}/sources/Log.o: sources/Log.cpp 
 	${MKDIR} -p ${OBJECTDIR}/sources
@@ -114,7 +110,7 @@ ${OBJECTDIR}/sources/InputManager.o: sources/InputManager.cpp
 # Clean Targets
 .clean-conf: ${CLEAN_SUBPROJECTS}
 	${RM} -r ${CND_BUILDDIR}/${CND_CONF}
-	${RM} ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/googe
+	${RM} ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libgooge.a
 
 # Subprojects
 .clean-subprojects:

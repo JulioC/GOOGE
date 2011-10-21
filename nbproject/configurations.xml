@@ -26,7 +26,6 @@
       <itemPath>sources/Scene.cpp</itemPath>
       <itemPath>sources/Vector2D.cpp</itemPath>
       <itemPath>sources/VideoManager.cpp</itemPath>
-      <itemPath>main.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
                    displayName="Test Files"
@@ -43,7 +42,7 @@
   </logicalFolder>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
-    <conf name="Debug" type="1">
+    <conf name="Debug" type="3">
       <toolsSet>
         <remote-sources-mode>LOCAL_SOURCES</remote-sources-mode>
         <compilerSet>default</compilerSet>
@@ -54,14 +53,8 @@
             <pElem>includes</pElem>
           </incDir>
         </ccTool>
-        <linkerTool>
-          <linkerLibItems>
-            <linkerOptionItem>-lSDL</linkerOptionItem>
-            <linkerOptionItem>-lSDL_image</linkerOptionItem>
-            <linkerOptionItem>-lSDL_ttf</linkerOptionItem>
-            <linkerOptionItem>-lSDL_mixer</linkerOptionItem>
-          </linkerLibItems>
-        </linkerTool>
+        <archiverTool>
+        </archiverTool>
       </compileType>
     </conf>
     <conf name="Release" type="1">
