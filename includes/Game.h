@@ -15,10 +15,10 @@ public:
     
     virtual ~Game();
     
-    bool setup();
-    void cleanup();
+    virtual bool setup();
+    virtual void cleanup();
     
-    void run();
+    virtual void run();
     
     bool ended() const;
     
