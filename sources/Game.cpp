@@ -19,7 +19,7 @@ _video(NULL),
 _input(NULL),
 _ended(false),
 _scenes(),
-_currentScene(NULL) {
+_activeScene(NULL) {
 }
 
 Game::~Game() {
@@ -34,7 +34,7 @@ bool Game::setup() {
     }
     
     _video = VideoManager::instance();
-    if(!_video->init(640, 480, "Amazing Wonderful Game")) {
+    if(!_video->init(640, 480, "GOOGE Game")) {
         Log::error("Failed to initialize VideoManager", this);
         return false;
     }
@@ -54,7 +54,7 @@ bool Game::setup() {
 
 void Game::cleanup() {   
     _scenes.clear();
-    _currentScene = NULL;
+    _activeScene = NULL;
     
     _video->release();
     _video = NULL;
@@ -69,13 +69,13 @@ void Game::run() {
     _input->update();
     _ended = _input->terminated();
     
-    if(_currentScene == NULL) {
+    if(_activeScene == NULL) {
         Log::error("No active scene", this);
         _ended = true;
     }
     else {
-        _currentScene->update();
-        _currentScene->draw();
+        _activeScene->update();
+        _activeScene->draw();
     }
     
     _video->update();
@@ -98,7 +98,7 @@ bool Game::removeScene(int index) {
     }
     
     Scene* scene = _scenes[index];
-    if(scene == _currentScene) {
+    if(scene == _activeScene) {
         Log::error("Tried to remove active scene", this);
         return false;
     }
@@ -109,7 +109,7 @@ bool Game::removeScene(int index) {
     return true;
 }
 
-bool Game::activeScene(int index) {
+bool Game::activateScene(int index) {
     if(index >= _scenes.size()) {
         Log::error("Tried to active invalid scene", this);
         return false;
@@ -133,9 +133,13 @@ bool Game::activeScene(int index) {
         return false;
     }
     
-    _currentScene->release();
+    _activeScene->release();
 
-    _currentScene = scene;
+    _activeScene = scene;
     
     return true;
+}
+
+void Game::setTitle(const char* title) {
+    SDL_WM_SetCaption(title, NULL);
 }

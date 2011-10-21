@@ -9,7 +9,7 @@
       <itemPath>includes/Log.h</itemPath>
       <itemPath>includes/Object.h</itemPath>
       <itemPath>includes/Scene.h</itemPath>
-      <itemPath>includes/Vector2D.h</itemPath>
+      <itemPath>includes/Vector.h</itemPath>
       <itemPath>includes/VideoManager.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
@@ -24,7 +24,7 @@
       <itemPath>sources/Log.cpp</itemPath>
       <itemPath>sources/Object.cpp</itemPath>
       <itemPath>sources/Scene.cpp</itemPath>
-      <itemPath>sources/Vector2D.cpp</itemPath>
+      <itemPath>sources/Vector.cpp</itemPath>
       <itemPath>sources/VideoManager.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"

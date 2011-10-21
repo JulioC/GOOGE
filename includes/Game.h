@@ -1,7 +1,6 @@
 #ifndef GAME_H
 #define	GAME_H
 
-#include <stack>
 #include <vector>
 
 #include "Object.h"
@@ -27,8 +26,10 @@ protected:
     
     int addScene(Scene* scene);
     bool removeScene(int index);
-    bool activeScene(int index);
-
+    bool activateScene(int index);
+    
+    void setTitle(const char* title);
+    
 private:
     Game(const Game&);
     const Game& operator=(const Game&);
@@ -43,7 +44,7 @@ private:
     InputManager* _input;
     
     std::vector<Scene*> _scenes;
-    Scene* _currentScene;
+    Scene* _activeScene;
 };
 
 #endif	/* GAME_H */
