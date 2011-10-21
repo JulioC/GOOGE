@@ -19,7 +19,6 @@ _video(NULL),
 _input(NULL),
 _ended(false),
 _scenes(),
-_activeScenes(),
 _currentScene(NULL) {
 }
 
@@ -35,14 +34,14 @@ bool Game::setup() {
     }
     
     _video = VideoManager::instance();
-    _video->init(640, 480, "Amazing Wonderful Game");
-    if(!_video->initiated()) {
+    if(!_video->init(640, 480, "Amazing Wonderful Game")) {
+        Log::error("Failed to initialize VideoManager", this);
         return false;
     }
     
     _input = InputManager::instance();
-    _input->init();
-    if(!_input->initiated()) {
+    if(!_input->init()) {
+        Log::error("Failed to initialize InputManager", this);
         return false;
     }
     
@@ -53,16 +52,9 @@ bool Game::setup() {
     return true;
 }
 
-void Game::cleanup() {
-    // Release any activeScene on the stack
-    while(!_activeScenes.empty()) {
-        Scene* scene = _activeScenes.top();
-        scene->release();
-        _activeScenes.pop();
-    }
-    _currentScene = NULL;
-    
+void Game::cleanup() {   
     _scenes.clear();
+    _currentScene = NULL;
     
     _video->release();
     _video = NULL;
@@ -77,13 +69,13 @@ void Game::run() {
     _input->update();
     _ended = _input->terminated();
     
-    if(_activeScene == NULL) {
+    if(_currentScene == NULL) {
         Log::error("No active scene", this);
         _ended = true;
     }
     else {
-        _activeScene->update();
-        _activeScene->draw();
+        _currentScene->update();
+        _currentScene->draw();
     }
     
     _video->update();
@@ -93,3 +85,57 @@ bool Game::ended() const {
     return _ended;
 }
 
+int Game::addScene(Scene* scene) {
+    int index = _scenes.size();
+    _scenes.push_back(scene);
+    return index;
+}
+
+bool Game::removeScene(int index) {
+    if(index >= _scenes.size()) {
+        Log::error("Tried to remove invalid scene", this);
+        return false;
+    }
+    
+    Scene* scene = _scenes[index];
+    if(scene == _currentScene) {
+        Log::error("Tried to remove active scene", this);
+        return false;
+    }
+    
+    // @TODO: track unused indexes to re-use
+    _scenes[index] = NULL;
+    
+    return true;
+}
+
+bool Game::activeScene(int index) {
+    if(index >= _scenes.size()) {
+        Log::error("Tried to active invalid scene", this);
+        return false;
+    }
+    
+    Scene* scene = _scenes[index];
+    
+    if(scene == NULL) {
+        Log::error("Tried to active null scene", this);
+        return false;
+    }
+    
+    // If already active, we shouldn't be calling for its activation
+    if(scene->active()) {
+        Log::error("Tried to re-active scene", this);
+        return false;
+    }
+    
+    if(!scene->init()) {
+        Log::error("Failed to initialize scene", this);
+        return false;
+    }
+    
+    _currentScene->release();
+
+    _currentScene = scene;
+    
+    return true;
+}

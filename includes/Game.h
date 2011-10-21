@@ -22,14 +22,16 @@ public:
     
     bool ended() const;
     
-// @TODO: Create scene management
-    bool activeScene(int index, bool temp=false);
-    Scene* currentScene();
+    int addScene(Scene* scene);
+    bool removeScene(int index);
+    bool activeScene(int index);
     
 private:
     Game();
     Game(const Game& orig);
     const Game& operator=(const Game& orig);
+    
+    void releaseScenes();
     
     static Game* _instance;
     
@@ -39,11 +41,7 @@ private:
     InputManager* _input;
     
     std::vector<Scene*> _scenes;
-    std::stack<Scene*> _activeScenes;
     Scene* _currentScene;
-    
-    
-    
 };
 
 #endif	/* GAME_H */
