@@ -9,19 +9,19 @@ CND_DISTDIR=dist
 # Debug configuration
 CND_PLATFORM_Debug=GNU-Linux-x86
 CND_ARTIFACT_DIR_Debug=dist/Debug/GNU-Linux-x86
-CND_ARTIFACT_NAME_Debug=libgooge.a
-CND_ARTIFACT_PATH_Debug=dist/Debug/GNU-Linux-x86/libgooge.a
+CND_ARTIFACT_NAME_Debug=libengine.a
+CND_ARTIFACT_PATH_Debug=dist/Debug/GNU-Linux-x86/libengine.a
 CND_PACKAGE_DIR_Debug=dist/Debug/GNU-Linux-x86/package
-CND_PACKAGE_NAME_Debug=GOOGE.tar
-CND_PACKAGE_PATH_Debug=dist/Debug/GNU-Linux-x86/package/GOOGE.tar
+CND_PACKAGE_NAME_Debug=Engine.tar
+CND_PACKAGE_PATH_Debug=dist/Debug/GNU-Linux-x86/package/Engine.tar
 # Release configuration
 CND_PLATFORM_Release=GNU-Linux-x86
 CND_ARTIFACT_DIR_Release=dist/Release/GNU-Linux-x86
-CND_ARTIFACT_NAME_Release=googe
-CND_ARTIFACT_PATH_Release=dist/Release/GNU-Linux-x86/googe
+CND_ARTIFACT_NAME_Release=engine
+CND_ARTIFACT_PATH_Release=dist/Release/GNU-Linux-x86/engine
 CND_PACKAGE_DIR_Release=dist/Release/GNU-Linux-x86/package
-CND_PACKAGE_NAME_Release=googe.tar
-CND_PACKAGE_PATH_Release=dist/Release/GNU-Linux-x86/package/googe.tar
+CND_PACKAGE_NAME_Release=engine.tar
+CND_PACKAGE_PATH_Release=dist/Release/GNU-Linux-x86/package/engine.tar
 #
 # include compiler specific variables
 #

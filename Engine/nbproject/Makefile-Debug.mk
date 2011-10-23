@@ -61,13 +61,13 @@ LDLIBSOPTIONS=
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}
-	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libgooge.a
+	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libengine.a
 
-${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libgooge.a: ${OBJECTFILES}
+${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libengine.a: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
-	${RM} ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libgooge.a
-	${AR} -rv ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libgooge.a ${OBJECTFILES} 
-	$(RANLIB) ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libgooge.a
+	${RM} ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libengine.a
+	${AR} -rv ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libengine.a ${OBJECTFILES} 
+	$(RANLIB) ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libengine.a
 
 ${OBJECTDIR}/sources/Scene.o: sources/Scene.cpp 
 	${MKDIR} -p ${OBJECTDIR}/sources
@@ -110,7 +110,7 @@ ${OBJECTDIR}/sources/InputManager.o: sources/InputManager.cpp
 # Clean Targets
 .clean-conf: ${CLEAN_SUBPROJECTS}
 	${RM} -r ${CND_BUILDDIR}/${CND_CONF}
-	${RM} ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libgooge.a
+	${RM} ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libengine.a
 
 # Subprojects
 .clean-subprojects:
