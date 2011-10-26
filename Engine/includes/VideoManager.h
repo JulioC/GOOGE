@@ -10,12 +10,27 @@ public:
     
     ~VideoManager();
     
-    bool init(const int width, const int height, const char* title);
+    bool init(int width, int height, const char* title);
     void release();
 
     void update();
 
     bool initiated() const;
+    
+    Image* loadImage(const char *filename, bool reload=false) {
+        // se imagem não carregada:
+                // carrega imagem [Image] no vetor interno
+        // incrementa contador
+        // retorna contador
+    }
+    
+    void releaseImage(Image **img) {
+        // decrementa contador
+        // se contador == 0, libera referencia interna e da memória
+        // seta o valor do ponteiro img para null
+    }
+    
+    
     
 private:
     VideoManager();

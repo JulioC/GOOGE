@@ -24,7 +24,7 @@ VideoManager::~VideoManager() {
     release();
 }
 
-bool VideoManager::init(const int width, const int height, const char* title) {
+bool VideoManager::init(int width, int height, const char* title) {
     SDL_InitSubSystem(SDL_INIT_VIDEO);
     
     if(!_SDLInitiated) {
