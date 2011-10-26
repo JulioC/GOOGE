@@ -40,6 +40,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/sources/Log.o \
 	${OBJECTDIR}/sources/VideoManager.o \
 	${OBJECTDIR}/sources/Vector.o \
+	${OBJECTDIR}/sources/Image.o \
 	${OBJECTDIR}/sources/InputManager.o
 
 
@@ -96,6 +97,11 @@ ${OBJECTDIR}/sources/Vector.o: sources/Vector.cpp
 	${MKDIR} -p ${OBJECTDIR}/sources
 	${RM} $@.d
 	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/sources/Vector.o sources/Vector.cpp
+
+${OBJECTDIR}/sources/Image.o: sources/Image.cpp 
+	${MKDIR} -p ${OBJECTDIR}/sources
+	${RM} $@.d
+	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/sources/Image.o sources/Image.cpp
 
 ${OBJECTDIR}/sources/InputManager.o: sources/InputManager.cpp 
 	${MKDIR} -p ${OBJECTDIR}/sources

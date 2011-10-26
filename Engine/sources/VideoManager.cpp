@@ -82,3 +82,37 @@ void VideoManager::update() {
 bool VideoManager::initiated() const {
     return _SDLInitiated && _TTFInitiated;
 }
+
+Image* VideoManager::getImage(const char* filename) {
+    if(_images[filename] == NULL) {
+        Image* img = new Image();
+        if(!img->load(filename)) {
+            delete img;
+            return NULL;
+        }
+        img->screen(_screen);
+        
+        ImageResource* res = new ImageResource();
+        res->image = img;
+        res->refCount = 0;
+        
+        _images[filename] = res;
+    }
+    
+    _images[filename]->refCount++;
+    
+    return _images[filename]->image;
+}
+
+void VideoManager::releaseImage(Image** image) {
+    const char* filename = (*image)->filename();
+    
+    _images[filename]->refCount--;
+    if(_images[filename]->refCount == 0) {
+        delete _images[filename]->image;
+        delete _images[filename];
+        _images.erase(filename);
+    }
+    
+    *image = NULL;
+}

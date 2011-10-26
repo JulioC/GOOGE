@@ -5,6 +5,7 @@
                    displayName="Header Files"
                    projectFiles="true">
       <itemPath>includes/Game.h</itemPath>
+      <itemPath>includes/Image.h</itemPath>
       <itemPath>includes/InputManager.h</itemPath>
       <itemPath>includes/Log.h</itemPath>
       <itemPath>includes/Object.h</itemPath>
@@ -20,6 +21,7 @@
                    displayName="Source Files"
                    projectFiles="true">
       <itemPath>sources/Game.cpp</itemPath>
+      <itemPath>sources/Image.cpp</itemPath>
       <itemPath>sources/InputManager.cpp</itemPath>
       <itemPath>sources/Log.cpp</itemPath>
       <itemPath>sources/Object.cpp</itemPath>

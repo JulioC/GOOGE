@@ -1,10 +1,20 @@
 #ifndef VIDEOMANAGER_H
 #define	VIDEOMANAGER_H
 
+#include <map>
+#include <string>
+
 #include "Object.h"
+#include "Image.h"
 #include "SDL/SDL.h"
 
 class VideoManager: public Object {
+private:
+    struct ImageResource {
+        unsigned int refCount;
+        Image* image;
+    };
+    
 public:
     static VideoManager* instance();
     
@@ -17,22 +27,10 @@ public:
 
     bool initiated() const;
     
-    Image* loadImage(const char *filename, bool reload=false) {
-        // se imagem não carregada:
-                // carrega imagem [Image] no vetor interno
-        // incrementa contador
-        // retorna contador
-    }
+    Image* getImage(const char* filename);
+    void releaseImage(Image** image);
     
-    void releaseImage(Image **img) {
-        // decrementa contador
-        // se contador == 0, libera referencia interna e da memória
-        // seta o valor do ponteiro img para null
-    }
-    
-    
-    
-private:
+private:    
     VideoManager();
     VideoManager(const VideoManager&);
     const VideoManager& operator=(const VideoManager&);
@@ -44,6 +42,7 @@ private:
     
     SDL_Surface* _screen;
     
+    std::map<std::string, ImageResource*> _images;
 };
 
 #endif	/* VIDEOMANAGER_H */
