@@ -133,7 +133,9 @@ bool Game::activateScene(int index) {
         return false;
     }
     
-    _activeScene->release();
+    if(_activeScene != NULL) {
+        _activeScene->release();
+    }
 
     _activeScene = scene;
     
