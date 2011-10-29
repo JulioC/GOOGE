@@ -18,7 +18,6 @@ Game::Game():
 _video(NULL),
 _input(NULL),
 _ended(false),
-_scenes(),
 _activeScene(NULL) {
 }
 
@@ -53,7 +52,6 @@ bool Game::setup() {
 }
 
 void Game::cleanup() {   
-    _scenes.clear();
     _activeScene = NULL;
     
     _video->release();
@@ -68,6 +66,13 @@ void Game::cleanup() {
 void Game::run() {
     _input->update();
     _ended = _input->terminated();
+    
+    if(_nextScene != NULL) {
+        if(!setActiveScene(_nextScene)) {
+            Log::error("Failed to change scene",this);
+            _ended = true;
+        }
+    }
     
     if(_activeScene == NULL) {
         Log::error("No active scene", this);
@@ -85,38 +90,7 @@ bool Game::ended() const {
     return _ended;
 }
 
-int Game::addScene(Scene* scene) {
-    int index = _scenes.size();
-    _scenes.push_back(scene);
-    return index;
-}
-
-bool Game::removeScene(int index) {
-    if(index >= _scenes.size()) {
-        Log::error("Tried to remove invalid scene", this);
-        return false;
-    }
-    
-    Scene* scene = _scenes[index];
-    if(scene == _activeScene) {
-        Log::error("Tried to remove active scene", this);
-        return false;
-    }
-    
-    // @TODO: track unused indexes to re-use
-    _scenes[index] = NULL;
-    
-    return true;
-}
-
-bool Game::activateScene(int index) {
-    if(index >= _scenes.size()) {
-        Log::error("Tried to active invalid scene", this);
-        return false;
-    }
-    
-    Scene* scene = _scenes[index];
-    
+bool Game::setActiveScene(Scene* scene) {
     if(scene == NULL) {
         Log::error("Tried to active null scene", this);
         return false;
@@ -138,8 +112,13 @@ bool Game::activateScene(int index) {
     }
 
     _activeScene = scene;
+    _nextScene = NULL;
     
     return true;
+}
+
+void Game::setNextScene(Scene* scene) {
+    _nextScene = scene;
 }
 
 void Game::setTitle(const char* title) {

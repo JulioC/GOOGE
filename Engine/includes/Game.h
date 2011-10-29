@@ -24,9 +24,7 @@ public:
 protected:
     Game();
     
-    int addScene(Scene* scene);
-    bool removeScene(int index);
-    bool activateScene(int index);
+    void setNextScene(Scene* scene);
     
     void setTitle(const char* title);
     
@@ -35,6 +33,7 @@ private:
     const Game& operator=(const Game&);
     
     void releaseScenes();
+    bool setActiveScene(Scene* scene);
     
     static Game* _instance;
     
@@ -43,8 +42,8 @@ private:
     VideoManager* _video;
     InputManager* _input;
     
-    std::vector<Scene*> _scenes;
     Scene* _activeScene;
+    Scene* _nextScene;
 };
 
 #endif	/* GAME_H */
