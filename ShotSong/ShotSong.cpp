@@ -21,9 +21,8 @@ void ShotSong::run() {
     if(_stateLoaded == false) {
         if(_gameState == 1) {
             Menu* menu = new Menu(this, VideoManager::instance(), InputManager::instance());
-            int sceneIndex;
-            sceneIndex = addScene(menu);
-            _stateLoaded=activateScene(sceneIndex);
+            setNextScene(menu);
+            _stateLoaded = true;
         }
     }
     Game::run();
