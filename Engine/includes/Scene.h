@@ -1,11 +1,14 @@
 #ifndef SCENE_H
 #define	SCENE_H
 
+#include <vector>
+
 #include "Object.h"
 
 class Game;
 class VideoManager;
 class InputManager;
+class Layer;
 
 class Scene: public Object {
 public:
@@ -16,14 +19,16 @@ public:
     virtual bool init();
     virtual void release();
     
-    virtual void update() = 0;
-    virtual void draw() = 0;
+    virtual void update();
+    virtual void draw();
     
     void game(Game* parent);
     void videoManager(VideoManager* video);
     void inputManager(InputManager* input);
     
     bool active() const;
+    
+    void addLayer(Layer* layer);
     
 private:
     Scene(const Scene&);
@@ -34,6 +39,8 @@ private:
     Game* _game;
     VideoManager* _video;
     InputManager* _input;
+    
+    std::vector<Layer*> _layers;
 };
 
 #endif	/* SCENE_H */

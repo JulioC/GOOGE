@@ -1,5 +1,8 @@
+#include <vector>
+
 #include "Scene.h"
 #include "Log.h"
+#include "Layer.h"
 
 Scene::Scene():
 _game(NULL),
@@ -58,3 +61,23 @@ bool Scene::active() const {
     return _active;
 }
 
+void Scene::addLayer(Layer* layer) {
+    if(layer != NULL) {
+        _layers.push_back(layer);
+    }
+    else {
+        Log::error("Tried to add a null layer", this);
+    }
+}
+
+void Scene::update() {
+    for(std::vector<Layer*>::size_type i=0;i<_layers.size();i++) {
+        _layers[i]->update();
+    }
+}
+
+void Scene::draw() {
+    for(std::vector<Layer*>::size_type i=0;i<_layers.size();i++) {
+        _layers[i]->draw();
+    }
+}
