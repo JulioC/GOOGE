@@ -80,3 +80,6 @@ float Vector::y() const {
     return _y;
 }
 
+Vector::~Vector() {
+}
+
