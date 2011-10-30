@@ -16,6 +16,8 @@ private:
 
     Menu(const Menu& orig);
     virtual ~Menu();
+    
+    bool _temp;
 
 };
 

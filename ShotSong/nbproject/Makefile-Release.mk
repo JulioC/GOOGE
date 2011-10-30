@@ -34,9 +34,10 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
-	${OBJECTDIR}/ShotSong.o \
 	${OBJECTDIR}/main.o \
-	${OBJECTDIR}/Menu.o
+	${OBJECTDIR}/ShotSong.o \
+	${OBJECTDIR}/Menu.o \
+	${OBJECTDIR}/Background.o
 
 
 # C Compiler Flags
@@ -63,20 +64,25 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/shotsong: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/shotsong ${OBJECTFILES} ${LDLIBSOPTIONS} 
 
-${OBJECTDIR}/ShotSong.o: ShotSong.cpp 
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} $@.d
-	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/ShotSong.o ShotSong.cpp
-
 ${OBJECTDIR}/main.o: main.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} $@.d
 	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/main.o main.cpp
 
+${OBJECTDIR}/ShotSong.o: ShotSong.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} $@.d
+	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/ShotSong.o ShotSong.cpp
+
 ${OBJECTDIR}/Menu.o: Menu.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} $@.d
 	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/Menu.o Menu.cpp
+
+${OBJECTDIR}/Background.o: Background.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} $@.d
+	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/Background.o Background.cpp
 
 # Subprojects
 .build-subprojects:
