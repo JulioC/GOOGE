@@ -54,6 +54,7 @@ bool Image::load(const char* filename) {
     }
     
     _surface = optimized;
+    return true;
 }
 
 void Image::draw(const Vector& position) {
