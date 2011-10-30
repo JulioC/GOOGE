@@ -38,6 +38,8 @@ OBJECTFILES= \
 	${OBJECTDIR}/sources/Object.o \
 	${OBJECTDIR}/sources/Game.o \
 	${OBJECTDIR}/sources/Log.o \
+	${OBJECTDIR}/sources/Sprite.o \
+	${OBJECTDIR}/sources/Layer.o \
 	${OBJECTDIR}/sources/VideoManager.o \
 	${OBJECTDIR}/sources/Vector.o \
 	${OBJECTDIR}/sources/Image.o \
@@ -87,6 +89,16 @@ ${OBJECTDIR}/sources/Log.o: sources/Log.cpp
 	${MKDIR} -p ${OBJECTDIR}/sources
 	${RM} $@.d
 	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/sources/Log.o sources/Log.cpp
+
+${OBJECTDIR}/sources/Sprite.o: sources/Sprite.cpp 
+	${MKDIR} -p ${OBJECTDIR}/sources
+	${RM} $@.d
+	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/sources/Sprite.o sources/Sprite.cpp
+
+${OBJECTDIR}/sources/Layer.o: sources/Layer.cpp 
+	${MKDIR} -p ${OBJECTDIR}/sources
+	${RM} $@.d
+	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/sources/Layer.o sources/Layer.cpp
 
 ${OBJECTDIR}/sources/VideoManager.o: sources/VideoManager.cpp 
 	${MKDIR} -p ${OBJECTDIR}/sources

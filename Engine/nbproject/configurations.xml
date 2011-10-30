@@ -7,9 +7,11 @@
       <itemPath>includes/Game.h</itemPath>
       <itemPath>includes/Image.h</itemPath>
       <itemPath>includes/InputManager.h</itemPath>
+      <itemPath>includes/Layer.h</itemPath>
       <itemPath>includes/Log.h</itemPath>
       <itemPath>includes/Object.h</itemPath>
       <itemPath>includes/Scene.h</itemPath>
+      <itemPath>includes/Sprite.h</itemPath>
       <itemPath>includes/Vector.h</itemPath>
       <itemPath>includes/VideoManager.h</itemPath>
     </logicalFolder>
@@ -23,9 +25,11 @@
       <itemPath>sources/Game.cpp</itemPath>
       <itemPath>sources/Image.cpp</itemPath>
       <itemPath>sources/InputManager.cpp</itemPath>
+      <itemPath>sources/Layer.cpp</itemPath>
       <itemPath>sources/Log.cpp</itemPath>
       <itemPath>sources/Object.cpp</itemPath>
       <itemPath>sources/Scene.cpp</itemPath>
+      <itemPath>sources/Sprite.cpp</itemPath>
       <itemPath>sources/Vector.cpp</itemPath>
       <itemPath>sources/VideoManager.cpp</itemPath>
     </logicalFolder>
