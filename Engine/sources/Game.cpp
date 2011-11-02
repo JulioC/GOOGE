@@ -105,6 +105,7 @@ bool Game::activeScene(Scene* scene) {
     
     if(_activeScene != NULL) {
         _activeScene->release();
+        delete _activeScene;
     }
 
     _activeScene = scene;
