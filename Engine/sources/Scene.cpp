@@ -7,15 +7,13 @@
 Scene::Scene():
 _game(NULL),
 _video(NULL),
-_input(NULL),
-_active(false) {
+_input(NULL) {
 }
 
 Scene::Scene(Game* parent, VideoManager* video, InputManager* input):
 _game(parent),
 _video(video),
-_input(input),
-_active(false) {
+_input(input) {
 }
 
 Scene::~Scene() {
@@ -36,9 +34,7 @@ bool Scene::init() {
     }
     
     // @TODO: Init general scene stuff (layers, elements, etc)
-    
-    _active = true;
-    
+        
     return true;
 }
 
@@ -55,10 +51,6 @@ void Scene::videoManager(VideoManager* video) {
 
 void Scene::inputManager(InputManager* input) {
     _input = input;
-}
-
-bool Scene::active() const {
-    return _active;
 }
 
 void Scene::addLayer(Layer* layer) {

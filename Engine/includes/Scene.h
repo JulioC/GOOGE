@@ -26,16 +26,12 @@ public:
     void videoManager(VideoManager* video);
     void inputManager(InputManager* input);
     
-    bool active() const;
-    
     void addLayer(Layer* layer);
     
 private:
     Scene(const Scene&);
     const Scene& operator=(const Scene&);
-    
-    bool _active;
-    
+        
     Game* _game;
     VideoManager* _video;
     InputManager* _input;

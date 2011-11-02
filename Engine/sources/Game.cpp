@@ -67,38 +67,34 @@ void Game::run() {
     _input->update();
     _ended = _input->terminated();
     
-    if(_nextScene != NULL) {
-        if(!setActiveScene(_nextScene)) {
-            Log::error("Failed to change scene",this);
-            _ended = true;
-        }
-    }
-    
     if(_activeScene == NULL) {
         Log::error("No active scene", this);
         _ended = true;
     }
     else {
         _activeScene->update();
-        _activeScene->draw();
-    }
     
-    _video->update();
+        if(_nextScene == NULL) {
+            _activeScene->draw();
+        }
+        else {
+            if(!activeScene(_nextScene)) {
+                Log::error("Failed to change scene", this);
+                _ended = true;
+            }
+        }
+
+        _video->update();
+    }
 }
 
 bool Game::ended() const {
     return _ended;
 }
 
-bool Game::setActiveScene(Scene* scene) {
+bool Game::activeScene(Scene* scene) {
     if(scene == NULL) {
         Log::error("Tried to active null scene", this);
-        return false;
-    }
-    
-    // If already active, we shouldn't be calling for its activation
-    if(scene->active()) {
-        Log::error("Tried to re-active scene", this);
         return false;
     }
     

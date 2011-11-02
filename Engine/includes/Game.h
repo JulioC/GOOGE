@@ -32,8 +32,7 @@ private:
     Game(const Game&);
     const Game& operator=(const Game&);
     
-    void releaseScenes();
-    bool setActiveScene(Scene* scene);
+    bool activeScene(Scene* scene);
     
     static Game* _instance;
     
