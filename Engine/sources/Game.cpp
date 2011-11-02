@@ -78,7 +78,7 @@ void Game::run() {
             _activeScene->draw();
         }
         else {
-            if(!activeScene(_nextScene)) {
+            if(!activeNextScene()) {
                 Log::error("Failed to change scene", this);
                 _ended = true;
             }
@@ -92,13 +92,28 @@ bool Game::ended() const {
     return _ended;
 }
 
-bool Game::activeScene(Scene* scene) {
-    if(scene == NULL) {
+void Game::setNextScene(Scene* scene) {
+    _nextScene = scene;
+    
+    if(_activeScene == NULL) {
+        if(!activeNextScene()) {
+            Log::error("Failed to change scene", this);
+            _ended = true;
+        }
+    }
+}
+
+void Game::setTitle(const char* title) {
+    SDL_WM_SetCaption(title, NULL);
+}
+
+bool Game::activeNextScene() {
+    if(_nextScene == NULL) {
         Log::error("Tried to active null scene", this);
         return false;
     }
     
-    if(!scene->init()) {
+    if(!_nextScene->init()) {
         Log::error("Failed to initialize scene", this);
         return false;
     }
@@ -108,16 +123,8 @@ bool Game::activeScene(Scene* scene) {
         delete _activeScene;
     }
 
-    _activeScene = scene;
+    _activeScene = _nextScene;
     _nextScene = NULL;
     
     return true;
-}
-
-void Game::setNextScene(Scene* scene) {
-    _nextScene = scene;
-}
-
-void Game::setTitle(const char* title) {
-    SDL_WM_SetCaption(title, NULL);
 }

@@ -39,6 +39,11 @@ bool Scene::init() {
 }
 
 void Scene::release() {
+    for(std::vector<Layer*>::size_type i=0;i<_layers.size();i++) {
+        if(_layers[i] != NULL) {
+            delete _layers[i];
+        }
+    }
 }
 
 void Scene::game(Game* parent) {
@@ -64,12 +69,16 @@ void Scene::addLayer(Layer* layer) {
 
 void Scene::update() {
     for(std::vector<Layer*>::size_type i=0;i<_layers.size();i++) {
-        _layers[i]->update();
+        if(_layers[i] != NULL) {
+            _layers[i]->update();
+        }
     }
 }
 
 void Scene::draw() {
     for(std::vector<Layer*>::size_type i=0;i<_layers.size();i++) {
-        _layers[i]->draw();
+        if(_layers[i] != NULL) {
+            _layers[i]->draw();
+        }
     }
 }

@@ -21,10 +21,10 @@ public:
     
     bool ended() const;
     
+    void setNextScene(Scene* scene);
+    
 protected:
     Game();
-    
-    void setNextScene(Scene* scene);
     
     void setTitle(const char* title);
     
@@ -32,7 +32,7 @@ private:
     Game(const Game&);
     const Game& operator=(const Game&);
     
-    bool activeScene(Scene* scene);
+    bool activeNextScene();
     
     static Game* _instance;
     
