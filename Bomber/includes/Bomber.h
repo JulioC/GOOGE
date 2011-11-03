@@ -8,7 +8,7 @@ public:
     Bomber();
     ~Bomber();
     
-//    bool setup();
+    bool setup();
 //    void cleanup();
 //    
 //    void run();
