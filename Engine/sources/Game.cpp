@@ -52,8 +52,20 @@ bool Game::setup() {
 }
 
 void Game::cleanup() {   
-    _activeScene = NULL;
+    if(_activeScene != NULL) {
+        _activeScene->release();
+        
+        delete _activeScene;
+        _activeScene = NULL;
+    }
     
+    if(_nextScene != NULL) {
+        _nextScene->release();
+        
+        delete _nextScene;
+        _nextScene = NULL;
+    }
+        
     _video->release();
     _video = NULL;
     
