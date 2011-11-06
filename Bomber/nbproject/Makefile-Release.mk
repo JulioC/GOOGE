@@ -52,11 +52,13 @@ FFLAGS=
 ASFLAGS=
 
 # Link Libraries and Options
-LDLIBSOPTIONS=
+LDLIBSOPTIONS=../Engine/dist/Release/GNU-Linux-x86/engine -lSDL -lSDL_image -lSDL_ttf -lSDL_mixer
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}
 	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/bomber
+
+${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/bomber: ../Engine/dist/Release/GNU-Linux-x86/engine
 
 ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/bomber: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
@@ -65,15 +67,17 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/bomber: ${OBJECTFILES}
 ${OBJECTDIR}/main.o: main.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} $@.d
-	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/main.o main.cpp
+	$(COMPILE.cc) -O2 -I../Engine/includes -Iincludes -MMD -MP -MF $@.d -o ${OBJECTDIR}/main.o main.cpp
 
 ${OBJECTDIR}/sources/Bomber.o: sources/Bomber.cpp 
 	${MKDIR} -p ${OBJECTDIR}/sources
 	${RM} $@.d
-	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/sources/Bomber.o sources/Bomber.cpp
+	$(COMPILE.cc) -O2 -I../Engine/includes -Iincludes -MMD -MP -MF $@.d -o ${OBJECTDIR}/sources/Bomber.o sources/Bomber.cpp
 
 # Subprojects
 .build-subprojects:
+	cd ../Engine && ${MAKE}  -f Makefile CONF=Release
+	cd ../Engine && ${MAKE}  -f Makefile CONF=Release
 
 # Clean Targets
 .clean-conf: ${CLEAN_SUBPROJECTS}
@@ -82,6 +86,8 @@ ${OBJECTDIR}/sources/Bomber.o: sources/Bomber.cpp
 
 # Subprojects
 .clean-subprojects:
+	cd ../Engine && ${MAKE}  -f Makefile CONF=Release clean
+	cd ../Engine && ${MAKE}  -f Makefile CONF=Release clean
 
 # Enable dependency checking
 .dep.inc: .depcheck-impl

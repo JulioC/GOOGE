@@ -77,6 +77,7 @@ ${OBJECTDIR}/sources/Bomber.o: sources/Bomber.cpp
 # Subprojects
 .build-subprojects:
 	cd ../Engine && ${MAKE}  -f Makefile CONF=Debug
+	cd ../Engine && ${MAKE}  -f Makefile CONF=Debug
 
 # Clean Targets
 .clean-conf: ${CLEAN_SUBPROJECTS}
@@ -85,6 +86,7 @@ ${OBJECTDIR}/sources/Bomber.o: sources/Bomber.cpp
 
 # Subprojects
 .clean-subprojects:
+	cd ../Engine && ${MAKE}  -f Makefile CONF=Debug clean
 	cd ../Engine && ${MAKE}  -f Makefile CONF=Debug clean
 
 # Enable dependency checking
