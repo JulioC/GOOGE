@@ -28,6 +28,9 @@ protected:
     
     void setTitle(const char* title);
     
+    VideoManager* _video;
+    InputManager* _input;
+    
 private:
     Game(const Game&);
     const Game& operator=(const Game&);
@@ -37,9 +40,6 @@ private:
     static Game* _instance;
     
     bool _ended;
-    
-    VideoManager* _video;
-    InputManager* _input;
     
     Scene* _activeScene;
     Scene* _nextScene;
