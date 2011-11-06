@@ -4,6 +4,7 @@
 #include "SDL/SDL.h"
 #include "Object.h"
 
+#include "Vector.h"
 
 class InputManager: public Object {
 public:
@@ -23,6 +24,13 @@ public:
     bool keyUp(SDLKey key) const;
     bool keyPressed(SDLKey key) const;
     
+    Vector mousePosition() const;
+    Vector mouseMotion() const;
+    
+    bool mouseDown(int button) const;
+    bool mouseUp(int button) const;
+    bool mousePressed(int button) const;
+    
 private:
     InputManager();
     InputManager(const InputManager&);
@@ -34,8 +42,13 @@ private:
     bool _terminated;
     
     int _keystateCount;
-    Uint8* _keystate;
-    Uint8* _lastKeystate;
+    Uint8* _keyState;
+    Uint8* _prevKeyState;
+    
+    Uint8 _mouseState;
+    Uint8 _prevMouseState;
+    Vector* _mousePosition;
+    Vector* _prevMousePosition;
     
     SDL_Event _event;
 };
