@@ -21,13 +21,16 @@ public:
     
     bool ended() const;
     
+    VideoManager* video() const;
+    InputManager* input() const;
+    
     void setNextScene(Scene* scene);
     
 protected:
     Game();
     
     void setTitle(const char* title);
-    
+        
     VideoManager* _video;
     InputManager* _input;
     
