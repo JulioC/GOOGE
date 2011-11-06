@@ -62,10 +62,9 @@ void VideoManager::release() {
         _TTFInitiated = false;
     }
     
-    if(_SDLInitiated) {
-        SDL_Quit();
-        _SDLInitiated = false;
-    }
+    _SDLInitiated = false;
+    
+    SDL_QuitSubSystem(SDL_INIT_VIDEO);
 
     Log::message("VideoManager released", this);
     

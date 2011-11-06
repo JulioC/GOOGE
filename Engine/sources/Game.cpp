@@ -72,6 +72,8 @@ void Game::cleanup() {
     _input->release();
     _input = NULL;
     
+    SDL_Quit();
+    
     Log::message("Game cleanup", this);
 }
 
