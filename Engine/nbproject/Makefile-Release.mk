@@ -73,52 +73,52 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/engine: ${OBJECTFILES}
 ${OBJECTDIR}/sources/Scene.o: sources/Scene.cpp 
 	${MKDIR} -p ${OBJECTDIR}/sources
 	${RM} $@.d
-	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/sources/Scene.o sources/Scene.cpp
+	$(COMPILE.cc) -O2 -Iincludes -MMD -MP -MF $@.d -o ${OBJECTDIR}/sources/Scene.o sources/Scene.cpp
 
 ${OBJECTDIR}/sources/Object.o: sources/Object.cpp 
 	${MKDIR} -p ${OBJECTDIR}/sources
 	${RM} $@.d
-	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/sources/Object.o sources/Object.cpp
+	$(COMPILE.cc) -O2 -Iincludes -MMD -MP -MF $@.d -o ${OBJECTDIR}/sources/Object.o sources/Object.cpp
 
 ${OBJECTDIR}/sources/Game.o: sources/Game.cpp 
 	${MKDIR} -p ${OBJECTDIR}/sources
 	${RM} $@.d
-	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/sources/Game.o sources/Game.cpp
+	$(COMPILE.cc) -O2 -Iincludes -MMD -MP -MF $@.d -o ${OBJECTDIR}/sources/Game.o sources/Game.cpp
 
 ${OBJECTDIR}/sources/Log.o: sources/Log.cpp 
 	${MKDIR} -p ${OBJECTDIR}/sources
 	${RM} $@.d
-	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/sources/Log.o sources/Log.cpp
+	$(COMPILE.cc) -O2 -Iincludes -MMD -MP -MF $@.d -o ${OBJECTDIR}/sources/Log.o sources/Log.cpp
 
 ${OBJECTDIR}/sources/Sprite.o: sources/Sprite.cpp 
 	${MKDIR} -p ${OBJECTDIR}/sources
 	${RM} $@.d
-	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/sources/Sprite.o sources/Sprite.cpp
+	$(COMPILE.cc) -O2 -Iincludes -MMD -MP -MF $@.d -o ${OBJECTDIR}/sources/Sprite.o sources/Sprite.cpp
 
 ${OBJECTDIR}/sources/Layer.o: sources/Layer.cpp 
 	${MKDIR} -p ${OBJECTDIR}/sources
 	${RM} $@.d
-	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/sources/Layer.o sources/Layer.cpp
+	$(COMPILE.cc) -O2 -Iincludes -MMD -MP -MF $@.d -o ${OBJECTDIR}/sources/Layer.o sources/Layer.cpp
 
 ${OBJECTDIR}/sources/VideoManager.o: sources/VideoManager.cpp 
 	${MKDIR} -p ${OBJECTDIR}/sources
 	${RM} $@.d
-	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/sources/VideoManager.o sources/VideoManager.cpp
+	$(COMPILE.cc) -O2 -Iincludes -MMD -MP -MF $@.d -o ${OBJECTDIR}/sources/VideoManager.o sources/VideoManager.cpp
 
 ${OBJECTDIR}/sources/Vector.o: sources/Vector.cpp 
 	${MKDIR} -p ${OBJECTDIR}/sources
 	${RM} $@.d
-	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/sources/Vector.o sources/Vector.cpp
+	$(COMPILE.cc) -O2 -Iincludes -MMD -MP -MF $@.d -o ${OBJECTDIR}/sources/Vector.o sources/Vector.cpp
 
 ${OBJECTDIR}/sources/Image.o: sources/Image.cpp 
 	${MKDIR} -p ${OBJECTDIR}/sources
 	${RM} $@.d
-	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/sources/Image.o sources/Image.cpp
+	$(COMPILE.cc) -O2 -Iincludes -MMD -MP -MF $@.d -o ${OBJECTDIR}/sources/Image.o sources/Image.cpp
 
 ${OBJECTDIR}/sources/InputManager.o: sources/InputManager.cpp 
 	${MKDIR} -p ${OBJECTDIR}/sources
 	${RM} $@.d
-	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/sources/InputManager.o sources/InputManager.cpp
+	$(COMPILE.cc) -O2 -Iincludes -MMD -MP -MF $@.d -o ${OBJECTDIR}/sources/InputManager.o sources/InputManager.cpp
 
 # Subprojects
 .build-subprojects:
