@@ -19,6 +19,10 @@ public:
     bool initiated() const;
     bool terminated() const;
     
+    bool keyDown(SDLKey key) const;
+    bool keyUp(SDLKey key) const;
+    bool keyPressed(SDLKey key) const;
+    
 private:
     InputManager();
     InputManager(const InputManager&);
@@ -29,7 +33,10 @@ private:
     bool _initiated;
     bool _terminated;
     
+    int _keystateCount;
     Uint8* _keystate;
+    Uint8* _lastKeystate;
+    
     SDL_Event _event;
 };
 

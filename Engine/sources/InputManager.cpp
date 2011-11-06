@@ -16,7 +16,8 @@ InputManager* InputManager::instance() {
 InputManager::InputManager():
 _initiated(false),
 _terminated(false),
-_keystate(0),
+_keystate(NULL),
+_lastKeystate(NULL),
 _event() {
 }
 
@@ -26,8 +27,11 @@ InputManager::~InputManager() {
 
 bool InputManager::init() {
     if(!_initiated) {
-        _keystate = SDL_GetKeyState(NULL);
-    
+        _keystate = SDL_GetKeyState(&_keystateCount);
+        
+        _lastKeystate = new Uint8[_keystateCount];
+        memset(_lastKeystate, 0, _keystateCount * sizeof(Uint8));
+        
         _initiated = true;
     }
     
@@ -38,7 +42,10 @@ bool InputManager::init() {
 
 void InputManager::release() {
     if(_initiated) {
-    
+        if(_lastKeystate != NULL) {
+            delete _lastKeystate;
+        }
+        
         _initiated = false;
     }
     
@@ -46,7 +53,9 @@ void InputManager::release() {
 }
 
 void InputManager::update() {
-    // No events need to be catch
+    memcpy(_lastKeystate, _keystate, _keystateCount * sizeof(Uint8));
+    
+    // Just catching the quit event
     while(SDL_PollEvent(&_event)) {
         if(_event.type == SDL_QUIT) {
             _terminated = true;
@@ -62,4 +71,16 @@ bool InputManager::initiated() const {
 
 bool InputManager::terminated() const {
     return _terminated;
+}
+    
+bool InputManager::keyDown(SDLKey key) const {
+    return _keystate[key];
+}
+
+bool InputManager::keyUp(SDLKey key) const {
+    return !_keystate[key];
+}
+
+bool InputManager::keyPressed(SDLKey key) const {
+    return _keystate[key] && !_lastKeystate[key];
 }
