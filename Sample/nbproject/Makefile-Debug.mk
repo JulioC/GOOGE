@@ -55,13 +55,13 @@ LDLIBSOPTIONS=../Engine/dist/Debug/GNU-Linux-x86/libengine.a -lSDL -lSDL_image -
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}
-	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/googe-sample
+	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/sample
 
-${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/googe-sample: ../Engine/dist/Debug/GNU-Linux-x86/libengine.a
+${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/sample: ../Engine/dist/Debug/GNU-Linux-x86/libengine.a
 
-${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/googe-sample: ${OBJECTFILES}
+${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/sample: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
-	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/googe-sample ${OBJECTFILES} ${LDLIBSOPTIONS} 
+	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/sample ${OBJECTFILES} ${LDLIBSOPTIONS} 
 
 ${OBJECTDIR}/main.o: main.cpp 
 	${MKDIR} -p ${OBJECTDIR}
@@ -71,14 +71,16 @@ ${OBJECTDIR}/main.o: main.cpp
 # Subprojects
 .build-subprojects:
 	cd ../Engine && ${MAKE}  -f Makefile CONF=Debug
+	cd ../Engine && ${MAKE}  -f Makefile CONF=Debug
 
 # Clean Targets
 .clean-conf: ${CLEAN_SUBPROJECTS}
 	${RM} -r ${CND_BUILDDIR}/${CND_CONF}
-	${RM} ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/googe-sample
+	${RM} ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/sample
 
 # Subprojects
 .clean-subprojects:
+	cd ../Engine && ${MAKE}  -f Makefile CONF=Debug clean
 	cd ../Engine && ${MAKE}  -f Makefile CONF=Debug clean
 
 # Enable dependency checking

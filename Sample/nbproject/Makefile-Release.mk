@@ -51,31 +51,37 @@ FFLAGS=
 ASFLAGS=
 
 # Link Libraries and Options
-LDLIBSOPTIONS=
+LDLIBSOPTIONS=../Engine/dist/Release/GNU-Linux-x86/engine -lSDL -lSDL_image -lSDL_ttf -lSDL_mixer
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}
-	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/googe-sample
+	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/sample
 
-${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/googe-sample: ${OBJECTFILES}
+${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/sample: ../Engine/dist/Release/GNU-Linux-x86/engine
+
+${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/sample: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
-	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/googe-sample ${OBJECTFILES} ${LDLIBSOPTIONS} 
+	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/sample ${OBJECTFILES} ${LDLIBSOPTIONS} 
 
 ${OBJECTDIR}/main.o: main.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} $@.d
-	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/main.o main.cpp
+	$(COMPILE.cc) -O2 -I../Engine/includes -Iinclude -MMD -MP -MF $@.d -o ${OBJECTDIR}/main.o main.cpp
 
 # Subprojects
 .build-subprojects:
+	cd ../Engine && ${MAKE}  -f Makefile CONF=Release
+	cd ../Engine && ${MAKE}  -f Makefile CONF=Release
 
 # Clean Targets
 .clean-conf: ${CLEAN_SUBPROJECTS}
 	${RM} -r ${CND_BUILDDIR}/${CND_CONF}
-	${RM} ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/googe-sample
+	${RM} ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/sample
 
 # Subprojects
 .clean-subprojects:
+	cd ../Engine && ${MAKE}  -f Makefile CONF=Release clean
+	cd ../Engine && ${MAKE}  -f Makefile CONF=Release clean
 
 # Enable dependency checking
 .dep.inc: .depcheck-impl

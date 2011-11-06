@@ -9,19 +9,19 @@ CND_DISTDIR=dist
 # Debug configuration
 CND_PLATFORM_Debug=GNU-Linux-x86
 CND_ARTIFACT_DIR_Debug=dist/Debug/GNU-Linux-x86
-CND_ARTIFACT_NAME_Debug=googe-sample
-CND_ARTIFACT_PATH_Debug=dist/Debug/GNU-Linux-x86/googe-sample
+CND_ARTIFACT_NAME_Debug=sample
+CND_ARTIFACT_PATH_Debug=dist/Debug/GNU-Linux-x86/sample
 CND_PACKAGE_DIR_Debug=dist/Debug/GNU-Linux-x86/package
-CND_PACKAGE_NAME_Debug=googe-sample.tar
-CND_PACKAGE_PATH_Debug=dist/Debug/GNU-Linux-x86/package/googe-sample.tar
+CND_PACKAGE_NAME_Debug=sample.tar
+CND_PACKAGE_PATH_Debug=dist/Debug/GNU-Linux-x86/package/sample.tar
 # Release configuration
 CND_PLATFORM_Release=GNU-Linux-x86
 CND_ARTIFACT_DIR_Release=dist/Release/GNU-Linux-x86
-CND_ARTIFACT_NAME_Release=googe-sample
-CND_ARTIFACT_PATH_Release=dist/Release/GNU-Linux-x86/googe-sample
+CND_ARTIFACT_NAME_Release=sample
+CND_ARTIFACT_PATH_Release=dist/Release/GNU-Linux-x86/sample
 CND_PACKAGE_DIR_Release=dist/Release/GNU-Linux-x86/package
-CND_PACKAGE_NAME_Release=googe-sample.tar
-CND_PACKAGE_PATH_Release=dist/Release/GNU-Linux-x86/package/googe-sample.tar
+CND_PACKAGE_NAME_Release=sample.tar
+CND_PACKAGE_PATH_Release=dist/Release/GNU-Linux-x86/package/sample.tar
 #
 # include compiler specific variables
 #
