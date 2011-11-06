@@ -22,16 +22,18 @@ public:
     const Vector& operator/=(const float& rh);
     
     bool operator==(const Vector& rh) const;
+    bool operator!=(const Vector& rh) const;
     
-    float dotProduct(const Vector& rh);
+    float dotProduct(const Vector& rh) const;
+    
+    float magnitude() const;
     
     void normalize();
-    float magnitude();
+    void floor();
+    void ceil();
     
     float x() const;
     float y() const;
-    
-    // @TODO: Implement vector operations 
     
 private:
     float _x;

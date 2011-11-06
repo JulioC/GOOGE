@@ -1,5 +1,7 @@
 #include "Vector.h"
 
+#include <cmath>
+
 Vector::Vector(float x, float y):
 _x(x),
 _y(y) {
@@ -68,9 +70,35 @@ bool Vector::operator ==(const Vector& rh) const {
     return (_x == rh._x && _y == rh._y);
 }
 
-float Vector::dotProduct(const Vector& rh) {
+bool Vector::operator !=(const Vector& rh) const {
+    return (_x != rh._x || _y != rh._y);
+}
+
+float Vector::dotProduct(const Vector& rh) const {
     return (_x*rh._x + _y*rh._y);
 }
+float Vector::magnitude() const {
+    return (float)sqrt(_x*_x + _y*_y);   
+}
+
+void Vector::normalize() {
+    float mag = magnitude();
+    _x /= mag;
+    _y /= mag;
+}
+
+
+void Vector::floor() {
+    _x = (float)floor(_x);
+    _y = (float)floor(_y);
+}
+
+
+void Vector::ceil() {
+    _x = (float)ceil(_x);
+    _y = (float)ceil(_y);
+}
+
 
 float Vector::x() const {
     return _x;
