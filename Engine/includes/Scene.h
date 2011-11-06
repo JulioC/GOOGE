@@ -12,8 +12,7 @@ class Layer;
 
 class Scene: public Object {
 public:
-    Scene();
-    Scene(Game* parent, VideoManager* video, InputManager* input);
+    Scene(Game* parent);
     virtual ~Scene();
     
     virtual bool init();
@@ -21,11 +20,8 @@ public:
     
     virtual void update();
     virtual void draw();
-    
-    void game(Game* parent);
-    void videoManager(VideoManager* video);
-    void inputManager(InputManager* input);
-    
+        
+protected:
     void addLayer(Layer* layer);
     
 private:

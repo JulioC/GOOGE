@@ -4,16 +4,9 @@
 #include "Log.h"
 #include "Layer.h"
 
-Scene::Scene():
-_game(NULL),
-_video(NULL),
-_input(NULL) {
-}
-
-Scene::Scene(Game* parent, VideoManager* video, InputManager* input):
-_game(parent),
-_video(video),
-_input(input) {
+Scene::Scene(Game* game):
+_game(game),
+_layers() {
 }
 
 Scene::~Scene() {
@@ -24,38 +17,19 @@ bool Scene::init() {
         Log::error("No Game set", this);
         return false;
     }
-    if(_video == NULL) {
-        Log::error("No VideoManager set", this);
-        return false;
-    }
-    if(_input == NULL) {
-        Log::error("No InputManager set", this);
-        return false;
-    }
     
-    // @TODO: Init general scene stuff (layers, elements, etc)
+    //@TODO: init layers?
         
     return true;
 }
 
 void Scene::release() {
-    for(std::vector<Layer*>::size_type i=0;i<_layers.size();i++) {
+    std::vector<Layer*>::size_type i;
+    for(i = 0; i <_layers.size(); i++) {
         if(_layers[i] != NULL) {
             delete _layers[i];
         }
     }
-}
-
-void Scene::game(Game* parent) {
-    _game = parent;
-}
-
-void Scene::videoManager(VideoManager* video) {
-    _video = video;
-}
-
-void Scene::inputManager(InputManager* input) {
-    _input = input;
 }
 
 void Scene::addLayer(Layer* layer) {
@@ -68,7 +42,8 @@ void Scene::addLayer(Layer* layer) {
 }
 
 void Scene::update() {
-    for(std::vector<Layer*>::size_type i=0;i<_layers.size();i++) {
+    std::vector<Layer*>::size_type i;
+    for(i = 0; i <_layers.size(); i++) {
         if(_layers[i] != NULL) {
             _layers[i]->update();
         }
@@ -76,7 +51,8 @@ void Scene::update() {
 }
 
 void Scene::draw() {
-    for(std::vector<Layer*>::size_type i=0;i<_layers.size();i++) {
+    std::vector<Layer*>::size_type i;
+    for(i = 0; i <_layers.size(); i++) {
         if(_layers[i] != NULL) {
             _layers[i]->draw();
         }

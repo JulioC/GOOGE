@@ -106,6 +106,14 @@ bool Game::ended() const {
     return _ended;
 }
 
+VideoManager* Game::video() const {
+    return _video;
+}
+
+InputManager* Game::input() const {
+    return _input;
+}
+
 void Game::setNextScene(Scene* scene) {
     _nextScene = scene;
     
