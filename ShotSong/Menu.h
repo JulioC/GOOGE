@@ -9,15 +9,11 @@ class VideoManager;
 class Menu : public Scene {
 public:
     Menu(Game* parent, VideoManager* video, InputManager* input);
-    void update();
-    void draw();
     
 private:
 
     Menu(const Menu& orig);
     virtual ~Menu();
-    
-    bool _temp;
 
 };
 

@@ -34,10 +34,12 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
+	${OBJECTDIR}/LevelTest.o \
 	${OBJECTDIR}/main.o \
 	${OBJECTDIR}/ShotSong.o \
 	${OBJECTDIR}/Menu.o \
-	${OBJECTDIR}/Background.o
+	${OBJECTDIR}/Background.o \
+	${OBJECTDIR}/Level.o
 
 
 # C Compiler Flags
@@ -66,6 +68,11 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/shotsong: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/shotsong ${OBJECTFILES} ${LDLIBSOPTIONS} 
 
+${OBJECTDIR}/LevelTest.o: LevelTest.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} $@.d
+	$(COMPILE.cc) -g -I../Engine/includes -Iincludes -MMD -MP -MF $@.d -o ${OBJECTDIR}/LevelTest.o LevelTest.cpp
+
 ${OBJECTDIR}/main.o: main.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} $@.d
@@ -85,6 +92,11 @@ ${OBJECTDIR}/Background.o: Background.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} $@.d
 	$(COMPILE.cc) -g -I../Engine/includes -Iincludes -MMD -MP -MF $@.d -o ${OBJECTDIR}/Background.o Background.cpp
+
+${OBJECTDIR}/Level.o: Level.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} $@.d
+	$(COMPILE.cc) -g -I../Engine/includes -Iincludes -MMD -MP -MF $@.d -o ${OBJECTDIR}/Level.o Level.cpp
 
 # Subprojects
 .build-subprojects:

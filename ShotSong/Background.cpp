@@ -15,7 +15,3 @@ void Background::update() {
         _temp = true;
     }
 }
-
-void Background::draw() {
-    Layer::draw();
-}
