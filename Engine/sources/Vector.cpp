@@ -89,14 +89,14 @@ void Vector::normalize() {
 
 
 void Vector::floor() {
-    _x = (float)floor(_x);
-    _y = (float)floor(_y);
+    _x = (float)std::floor(_x);
+    _y = (float)std::floor(_y);
 }
 
 
 void Vector::ceil() {
-    _x = (float)ceil(_x);
-    _y = (float)ceil(_y);
+    _x = (float)std::ceil(_x);
+    _y = (float)std::ceil(_y);
 }
 
 
