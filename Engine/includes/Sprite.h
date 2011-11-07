@@ -5,12 +5,12 @@
 #include "Image.h"
 #include "Vector.h"
 
+class Game;
+
 class Sprite : public Object {
 public:
-    Sprite();
-    Sprite(Image* image, Vector position);
-    Sprite(const char* filename, Vector position);
-    
+    Sprite(Game* game, const char* filename, const Vector& position);
+
     virtual void update();
     virtual void draw();
     
@@ -18,6 +18,8 @@ public:
     
 protected:
     bool _terminate;
+    
+    Game* _game;
     
     Image* _image;
     Vector _position;

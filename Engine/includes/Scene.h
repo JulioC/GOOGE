@@ -4,15 +4,15 @@
 #include <vector>
 
 #include "Object.h"
+#include "VideoManager.h"
+#include "InputManager.h"
+#include "Layer.h"
 
 class Game;
-class VideoManager;
-class InputManager;
-class Layer;
 
 class Scene: public Object {
 public:
-    Scene(Game* parent);
+    Scene(Game* game);
     virtual ~Scene();
     
     virtual bool init();
@@ -23,14 +23,12 @@ public:
         
 protected:
     void addLayer(Layer* layer);
+        
+    Game* _game;
     
 private:
     Scene(const Scene&);
     const Scene& operator=(const Scene&);
-        
-    Game* _game;
-    VideoManager* _video;
-    InputManager* _input;
     
     std::vector<Layer*> _layers;
 };

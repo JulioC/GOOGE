@@ -2,7 +2,8 @@
 #include "Sprite.h"
 #include "Log.h"
 
-Layer::Layer() {
+Layer::Layer(Game* game):
+_game(game) {
 }
 
 Layer::~Layer() {

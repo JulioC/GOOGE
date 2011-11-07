@@ -2,7 +2,6 @@
 
 #include "Scene.h"
 #include "Log.h"
-#include "Layer.h"
 
 Scene::Scene(Game* game):
 _game(game),
@@ -13,11 +12,6 @@ Scene::~Scene() {
 }
 
 bool Scene::init() {
-    if(_game == NULL) {
-        Log::error("No Game set", this);
-        return false;
-    }
-    
     //@TODO: init layers?
         
     return true;

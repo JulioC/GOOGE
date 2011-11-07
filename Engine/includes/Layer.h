@@ -6,9 +6,11 @@
 #include "Object.h"
 #include "Sprite.h"
 
+class Game;
+
 class Layer : public Object {
 public:
-    Layer();
+    Layer(Game* game);
     virtual ~Layer();
     
     virtual void update();
@@ -18,6 +20,9 @@ public:
     void addSprite(Sprite* sprite);
     void removeSprite(int index);
     int nextIndex() const;
+    
+protected:
+    Game* _game;
     
 private:
     Layer(const Layer&);

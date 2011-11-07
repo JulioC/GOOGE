@@ -1,31 +1,21 @@
 #include "Sprite.h"
-#include "Image.h"
-#include "Scene.h"
 #include "VideoManager.h"
+#include "Game.h"
 
-Sprite::Sprite():
+Sprite::Sprite(Game* game, const char* filename, const Vector& position):
+_terminate(false),
+_game(game),
 _image(NULL), 
-_position(0,0),
-_terminate(false) {
-}
-
-Sprite::Sprite(Image* image, Vector position): 
-_image(image), 
-_position(position),
-_terminate(false) {
-}
-Sprite::Sprite(const char* filename, Vector position): 
-_position(position),
-_terminate(false) {
-    Image* image = VideoManager::instance()->getImage(filename);
-    _image = image;
+_position(position) {
+    _image = _game->video()->getImage(filename);
 }
 
 Sprite::~Sprite() {
+    _game->video()->releaseImage(&_image);
 }
 
 void Sprite::update() {
-    
+
 }
 
 void Sprite::draw() {
