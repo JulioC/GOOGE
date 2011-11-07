@@ -37,7 +37,6 @@ OBJECTFILES= \
 	${OBJECTDIR}/LevelTest.o \
 	${OBJECTDIR}/main.o \
 	${OBJECTDIR}/ShotSong.o \
-	${OBJECTDIR}/Menu.o \
 	${OBJECTDIR}/Background.o \
 	${OBJECTDIR}/Level.o
 
@@ -82,11 +81,6 @@ ${OBJECTDIR}/ShotSong.o: ShotSong.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} $@.d
 	$(COMPILE.cc) -O2 -I../Engine/includes -Iincludes -MMD -MP -MF $@.d -o ${OBJECTDIR}/ShotSong.o ShotSong.cpp
-
-${OBJECTDIR}/Menu.o: Menu.cpp 
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} $@.d
-	$(COMPILE.cc) -O2 -I../Engine/includes -Iincludes -MMD -MP -MF $@.d -o ${OBJECTDIR}/Menu.o Menu.cpp
 
 ${OBJECTDIR}/Background.o: Background.cpp 
 	${MKDIR} -p ${OBJECTDIR}

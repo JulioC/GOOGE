@@ -7,7 +7,6 @@
       <itemPath>Background.h</itemPath>
       <itemPath>Level.h</itemPath>
       <itemPath>LevelTest.h</itemPath>
-      <itemPath>Menu.h</itemPath>
       <itemPath>ShotSong.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
@@ -20,7 +19,6 @@
       <itemPath>Background.cpp</itemPath>
       <itemPath>Level.cpp</itemPath>
       <itemPath>LevelTest.cpp</itemPath>
-      <itemPath>Menu.cpp</itemPath>
       <itemPath>ShotSong.cpp</itemPath>
       <itemPath>main.cpp</itemPath>
     </logicalFolder>

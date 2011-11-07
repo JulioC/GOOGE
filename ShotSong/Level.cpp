@@ -1,11 +1,8 @@
 #include "Level.h"
-
-#include "VideoManager.h"
-#include "InputManager.h"
 #include "Background.h"
 
 Level::Level(Game* parent) :
-Scene::Scene(parent, VideoManager::instance(), InputManager::instance()) {
+Scene::Scene(parent) {
 }
 
 Level::~Level() {
@@ -17,7 +14,9 @@ bool Level::init() {
         return false;
     }
     
-    Layer* background = new Background()
+    Layer* background = new Background();
+    addLayer(background);
+    
     
     return true;
     
