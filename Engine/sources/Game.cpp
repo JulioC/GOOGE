@@ -52,16 +52,12 @@ bool Game::setup() {
 }
 
 void Game::cleanup() {   
-    if(_activeScene != NULL) {
-        _activeScene->release();
-        
+    if(_activeScene != NULL) {        
         delete _activeScene;
         _activeScene = NULL;
     }
     
-    if(_nextScene != NULL) {
-        _nextScene->release();
-        
+    if(_nextScene != NULL) {        
         delete _nextScene;
         _nextScene = NULL;
     }
@@ -135,13 +131,7 @@ bool Game::activeNextScene() {
         return false;
     }
     
-    if(!_nextScene->init()) {
-        Log::error("Failed to initialize scene", this);
-        return false;
-    }
-    
     if(_activeScene != NULL) {
-        _activeScene->release();
         delete _activeScene;
     }
 

@@ -15,9 +15,6 @@ public:
     Scene(Game* game);
     virtual ~Scene();
     
-    virtual bool init();
-    virtual void release();
-    
     virtual void update();
     virtual void draw();
         
