@@ -2,13 +2,15 @@
 #define	LAYER_H
 
 #include <vector>
+#include <stack>
 
 #include "Object.h"
-#include "Sprite.h"
+#include "Entity.h"
+
 
 class Game;
 
-class Layer : public Object {
+class Layer: public Object {
 public:
     Layer(Game* game);
     virtual ~Layer();
@@ -16,18 +18,19 @@ public:
     virtual void update();
     virtual void draw();
     
-    //@TODO: Find a better way to manage the layer sprites
-    void addSprite(Sprite* sprite);
-    void removeSprite(int index);
-    int nextIndex() const;
+    int addEntity(Entity* entity);
     
 protected:
+    void removeEntity(int index);
+    
     Game* _game;
     
 private:
     Layer(const Layer&);
+    const Layer& operator=(const Layer&);
     
-    std::vector<Sprite*> _sprites;
+    std::vector<Entity*> _entities;
+    std::stack<int> _indexes;
 
 };
 

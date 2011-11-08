@@ -9,8 +9,7 @@ _layers() {
 }
 
 Scene::~Scene() {
-    std::vector<Layer*>::size_type i;
-    for(i = 0; i <_layers.size(); i++) {
+    for(int i = 0; i <_layers.size(); i++) {
         if(_layers[i] != NULL) {
             delete _layers[i];
         }
@@ -18,8 +17,7 @@ Scene::~Scene() {
 }
 
 void Scene::update() {
-    std::vector<Layer*>::size_type i;
-    for(i = 0; i <_layers.size(); i++) {
+    for(int i = 0; i <_layers.size(); i++) {
         if(_layers[i] != NULL) {
             _layers[i]->update();
         }
@@ -27,8 +25,7 @@ void Scene::update() {
 }
 
 void Scene::draw() {
-    std::vector<Layer*>::size_type i;
-    for(i = 0; i <_layers.size(); i++) {
+    for(int i = 0; i <_layers.size(); i++) {
         if(_layers[i] != NULL) {
             _layers[i]->draw();
         }
@@ -36,10 +33,10 @@ void Scene::draw() {
 }
 
 void Scene::addLayer(Layer* layer) {
-    if(layer != NULL) {
-        _layers.push_back(layer);
+    if(layer == NULL) {
+        Log::error("Tried to add a null layer", this);
     }
     else {
-        Log::error("Tried to add a null layer", this);
+        _layers.push_back(layer);
     }
 }

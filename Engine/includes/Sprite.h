@@ -1,24 +1,21 @@
 #ifndef SPRITE_H
 #define	SPRITE_H
 
-#include "Object.h"
+#include "Entity.h"
 #include "Image.h"
 #include "Vector.h"
 
 class Game;
 
-class Sprite : public Object {
+class Sprite: public Entity {
 public:
     Sprite(Game* game, const char* filename, const Vector& position);
+    virtual ~Sprite();
 
     virtual void update();
     virtual void draw();
-    
-    bool terminate() const;
-    
+
 protected:
-    bool _terminate;
-    
     Game* _game;
     
     Image* _image;
@@ -26,7 +23,7 @@ protected:
     
 private:
     Sprite(const Sprite&);
-    virtual ~Sprite();
+    const Sprite& operator=(const Sprite&);
 
 };
 

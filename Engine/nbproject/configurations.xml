@@ -4,6 +4,7 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
+      <itemPath>includes/Entity.h</itemPath>
       <itemPath>includes/Game.h</itemPath>
       <itemPath>includes/Image.h</itemPath>
       <itemPath>includes/InputManager.h</itemPath>
@@ -12,6 +13,7 @@
       <itemPath>includes/Object.h</itemPath>
       <itemPath>includes/Scene.h</itemPath>
       <itemPath>includes/Sprite.h</itemPath>
+      <itemPath>includes/TimeHandler.h</itemPath>
       <itemPath>includes/Vector.h</itemPath>
       <itemPath>includes/VideoManager.h</itemPath>
     </logicalFolder>
@@ -30,6 +32,7 @@
       <itemPath>sources/Object.cpp</itemPath>
       <itemPath>sources/Scene.cpp</itemPath>
       <itemPath>sources/Sprite.cpp</itemPath>
+      <itemPath>sources/TimeHandler.cpp</itemPath>
       <itemPath>sources/Vector.cpp</itemPath>
       <itemPath>sources/VideoManager.cpp</itemPath>
     </logicalFolder>

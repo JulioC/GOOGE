@@ -42,6 +42,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/sources/Layer.o \
 	${OBJECTDIR}/sources/VideoManager.o \
 	${OBJECTDIR}/sources/Vector.o \
+	${OBJECTDIR}/sources/TimeHandler.o \
 	${OBJECTDIR}/sources/Image.o \
 	${OBJECTDIR}/sources/InputManager.o
 
@@ -111,6 +112,11 @@ ${OBJECTDIR}/sources/Vector.o: sources/Vector.cpp
 	${MKDIR} -p ${OBJECTDIR}/sources
 	${RM} $@.d
 	$(COMPILE.cc) -g -Iincludes -MMD -MP -MF $@.d -o ${OBJECTDIR}/sources/Vector.o sources/Vector.cpp
+
+${OBJECTDIR}/sources/TimeHandler.o: sources/TimeHandler.cpp 
+	${MKDIR} -p ${OBJECTDIR}/sources
+	${RM} $@.d
+	$(COMPILE.cc) -g -Iincludes -MMD -MP -MF $@.d -o ${OBJECTDIR}/sources/TimeHandler.o sources/TimeHandler.cpp
 
 ${OBJECTDIR}/sources/Image.o: sources/Image.cpp 
 	${MKDIR} -p ${OBJECTDIR}/sources
