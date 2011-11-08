@@ -4,6 +4,10 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
+      <itemPath>FirstScene.h</itemPath>
+      <itemPath>MapLayer.h</itemPath>
+      <itemPath>PlayerSprite.h</itemPath>
+      <itemPath>Sample.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
                    displayName="Resource Files"
@@ -12,6 +16,10 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
+      <itemPath>FirstScene.cpp</itemPath>
+      <itemPath>MapLayer.cpp</itemPath>
+      <itemPath>PlayerSprite.cpp</itemPath>
+      <itemPath>Sample.cpp</itemPath>
       <itemPath>main.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"

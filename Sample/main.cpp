@@ -1,9 +1,11 @@
 #include <cstdlib>
 #include "Game.h"
+#include "Sample.h"
+
 using namespace std;
 
 int main(int argc, char** argv) {
-    Game* game = Game::instance();
+    Game* game = new Sample();
     
     if(!game->setup()) {
         return 1;

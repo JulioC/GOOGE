@@ -34,7 +34,11 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
-	${OBJECTDIR}/main.o
+	${OBJECTDIR}/PlayerSprite.o \
+	${OBJECTDIR}/main.o \
+	${OBJECTDIR}/FirstScene.o \
+	${OBJECTDIR}/MapLayer.o \
+	${OBJECTDIR}/Sample.o
 
 
 # C Compiler Flags
@@ -63,10 +67,30 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/sample: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/sample ${OBJECTFILES} ${LDLIBSOPTIONS} 
 
+${OBJECTDIR}/PlayerSprite.o: PlayerSprite.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} $@.d
+	$(COMPILE.cc) -O2 -I../Engine/includes -Iinclude -MMD -MP -MF $@.d -o ${OBJECTDIR}/PlayerSprite.o PlayerSprite.cpp
+
 ${OBJECTDIR}/main.o: main.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} $@.d
 	$(COMPILE.cc) -O2 -I../Engine/includes -Iinclude -MMD -MP -MF $@.d -o ${OBJECTDIR}/main.o main.cpp
+
+${OBJECTDIR}/FirstScene.o: FirstScene.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} $@.d
+	$(COMPILE.cc) -O2 -I../Engine/includes -Iinclude -MMD -MP -MF $@.d -o ${OBJECTDIR}/FirstScene.o FirstScene.cpp
+
+${OBJECTDIR}/MapLayer.o: MapLayer.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} $@.d
+	$(COMPILE.cc) -O2 -I../Engine/includes -Iinclude -MMD -MP -MF $@.d -o ${OBJECTDIR}/MapLayer.o MapLayer.cpp
+
+${OBJECTDIR}/Sample.o: Sample.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} $@.d
+	$(COMPILE.cc) -O2 -I../Engine/includes -Iinclude -MMD -MP -MF $@.d -o ${OBJECTDIR}/Sample.o Sample.cpp
 
 # Subprojects
 .build-subprojects:
