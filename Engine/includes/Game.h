@@ -9,9 +9,8 @@
 #include "Scene.h"
 
 class Game: public Object {
-public:
-    static Game* instance();
-    
+public:    
+    Game();
     virtual ~Game();
     
     virtual bool setup();
@@ -26,9 +25,7 @@ public:
     
     void setNextScene(Scene* scene);
     
-protected:
-    Game();
-    
+protected:    
     void setTitle(const char* title);
         
     VideoManager* _video;
@@ -39,8 +36,6 @@ private:
     const Game& operator=(const Game&);
     
     bool activeNextScene();
-    
-    static Game* _instance;
     
     bool _ended;
     

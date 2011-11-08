@@ -4,16 +4,6 @@
 #include "Log.h"
 #include "Scene.h"
 
-Game* Game::_instance = NULL;
-
-Game* Game::instance() {
-    if(_instance == NULL) { 
-        _instance = new Game();
-    }
-    
-    return _instance;
-}
-
 Game::Game():
 _video(NULL),
 _input(NULL),
