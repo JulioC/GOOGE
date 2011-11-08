@@ -1,5 +1,5 @@
 #include "ShotSong.h"
-#include "Menu.h"
+#include "LevelTest.h"
 
 ShotSong::ShotSong() {
     
@@ -10,20 +10,14 @@ ShotSong::~ShotSong() {
 }
 
 bool ShotSong::setup() {
-    Game::setup();
-    setTitle("Shot Song");
-    _gameState = 1;
-    _stateLoaded = false;
-    return true;
-}
-
-void ShotSong::run() {
-    if(_stateLoaded == false) {
-        if(_gameState == 1) {
-            Menu* menu = new Menu(this, VideoManager::instance(), InputManager::instance());
-            setNextScene(menu);
-            _stateLoaded = true;
-        }
+    if(!Game::setup()) {
+        return false;
     }
-    Game::run();
+    
+    setTitle("Shot Song");
+    
+    Scene* leveltest = new LevelTest(this);
+    setNextScene(leveltest);
+    
+    return true;
 }

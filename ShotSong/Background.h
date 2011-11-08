@@ -7,14 +7,9 @@ class Background : public Layer {
 public:
     Background();
     
-    void update();
-    void draw();
-    
 private:
     Background(const Background& orig);
     virtual ~Background();
-    
-    bool _temp;
 
 };
 
