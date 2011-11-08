@@ -6,7 +6,7 @@
 class Entity: public Object {
 public:
     Entity():
-    _ended(1) {
+    _ended(0) {
     }
     virtual ~Entity() {        
     }
