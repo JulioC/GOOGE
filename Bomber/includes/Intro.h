@@ -1,9 +1,11 @@
 #ifndef INTRO_H
 #define	INTRO_H
 
+#include "Scene.h"
+
 class Intro: public Scene {
 public:
-    Intro();
+    Intro(Game* game);
     virtual ~Intro();
     
 private:
