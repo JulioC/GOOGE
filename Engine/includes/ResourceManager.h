@@ -46,7 +46,7 @@ public:
         return _resources[identifier]->resource;
     }   
     
-    void release(T** resource) {
+    void release(T* resource) {
         std::string identifier = identify(*resource);
 
         _resources[identifier]->refCount--;

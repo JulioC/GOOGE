@@ -18,14 +18,14 @@ public:
     virtual void draw();
 
 protected:
-    Game* _game;
-    
-    Image* _image;
     Vector _position;
+    Image* _image;
     
-private:
+private:    
     Sprite(const Sprite&);
     const Sprite& operator=(const Sprite&);
+    
+    Game* _game;
 
 };
 

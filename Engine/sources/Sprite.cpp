@@ -10,7 +10,7 @@ _position(position) {
 }
 
 Sprite::~Sprite() {
-    _game->video()->images()->release(&_image);
+    _game->video()->images()->release(_image);
 }
 
 void Sprite::update() {
