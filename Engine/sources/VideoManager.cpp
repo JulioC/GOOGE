@@ -101,10 +101,6 @@ bool VideoManager::initiated() const {
     return _SDLInitiated && _TTFInitiated;
 }
 
-SDL_Surface* VideoManager::screen() const {
-    return _screen;
-}
-
 ImageManager* VideoManager::images() const {
     return _images;
 }

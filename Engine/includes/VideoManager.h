@@ -22,7 +22,6 @@ public:
 
     bool initiated() const;
     
-    SDL_Surface* screen() const;
     ImageManager* images() const;
     FontManager* fonts() const;
     
