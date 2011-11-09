@@ -1,9 +1,12 @@
 #ifndef TEXT_H
 #define	TEXT_H
 
-class Text {
+#include "defs.h"
+#include "Surface.h"
+
+class Text: public Surface {
 public:
-    Text();
+    Text(SDL_Surface* screen, SDL_Surface* surface);
     virtual ~Text();
 
 private:
