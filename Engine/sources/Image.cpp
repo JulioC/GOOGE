@@ -5,7 +5,7 @@ Surface(screen),
 _filename(NULL) {
     size_t len = strlen(filename);
     
-    _filename = new char[len];
+    _filename = new char[len + 1];
     strcpy(_filename, filename);
     
     SDL_Surface *image = NULL;

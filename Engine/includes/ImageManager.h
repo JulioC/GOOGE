@@ -2,11 +2,8 @@
 #define	IMAGEMANAGER_H
 
 #include "defs.h"
-
 #include "ResourceManager.h"
 #include "Image.h"
-
-class VideoManager;
 
 class ImageManager: public ResourceManager<Image> {
 public:

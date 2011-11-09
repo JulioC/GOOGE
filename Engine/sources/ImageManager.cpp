@@ -1,5 +1,4 @@
 #include "ImageManager.h"
-#include "Image.h"
 
 ImageManager::ImageManager(SDL_Surface* screen):
 ResourceManager(),
