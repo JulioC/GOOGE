@@ -2,7 +2,8 @@
 
 #include <SDL/SDL_ttf.h>
 
-#include "Log.h"        
+#include "Log.h"
+#include "ImageManager.h"        
 
 VideoManager* VideoManager::_instance = NULL;
 
@@ -15,9 +16,10 @@ VideoManager* VideoManager::instance() {
 } 
 
 VideoManager::VideoManager():
-_screen(NULL),
 _SDLInitiated(false),
-_TTFInitiated(false) {
+_TTFInitiated(false),
+_screen(NULL),
+_images(NULL) {
 }
 
 VideoManager::~VideoManager() {
@@ -35,7 +37,9 @@ bool VideoManager::init(int width, int height, const char* title) {
             Log::error(SDL_GetError(), this);
             return false;
         }
-        
+
+        _images = new ImageManager(_screen);
+
         _SDLInitiated = true;
     }
     
@@ -62,7 +66,14 @@ void VideoManager::release() {
         _TTFInitiated = false;
     }
     
-    _SDLInitiated = false;
+    if(_SDLInitiated) {
+        if(_images != NULL) {
+            delete _images;
+            _images = NULL;
+        }
+        
+        _SDLInitiated = false;
+    }
     
     SDL_QuitSubSystem(SDL_INIT_VIDEO);
 
@@ -82,36 +93,10 @@ bool VideoManager::initiated() const {
     return _SDLInitiated && _TTFInitiated;
 }
 
-Image* VideoManager::getImage(const char* filename) {
-    if(_images[filename] == NULL) {
-        Image* img = new Image();
-        if(!img->load(filename)) {
-            delete img;
-            return NULL;
-        }
-        img->screen(_screen);
-        
-        ImageResource* res = new ImageResource();
-        res->image = img;
-        res->refCount = 0;
-        
-        _images[filename] = res;
-    }
-    
-    _images[filename]->refCount++;
-    
-    return _images[filename]->image;
+SDL_Surface* VideoManager::screen() const {
+    return _screen;
 }
 
-void VideoManager::releaseImage(Image** image) {
-    const char* filename = (*image)->filename();
-    
-    _images[filename]->refCount--;
-    if(_images[filename]->refCount == 0) {
-        delete _images[filename]->image;
-        delete _images[filename];
-        _images.erase(filename);
-    }
-    
-    *image = NULL;
+ImageManager* VideoManager::images() const {
+    return _images;
 }

@@ -7,10 +7,12 @@
       <itemPath>includes/Entity.h</itemPath>
       <itemPath>includes/Game.h</itemPath>
       <itemPath>includes/Image.h</itemPath>
+      <itemPath>includes/ImageManager.h</itemPath>
       <itemPath>includes/InputManager.h</itemPath>
       <itemPath>includes/Layer.h</itemPath>
       <itemPath>includes/Log.h</itemPath>
       <itemPath>includes/Object.h</itemPath>
+      <itemPath>includes/ResourceManager.h</itemPath>
       <itemPath>includes/Scene.h</itemPath>
       <itemPath>includes/Sprite.h</itemPath>
       <itemPath>includes/TimeHandler.h</itemPath>
@@ -26,6 +28,7 @@
                    projectFiles="true">
       <itemPath>sources/Game.cpp</itemPath>
       <itemPath>sources/Image.cpp</itemPath>
+      <itemPath>sources/ImageManager.cpp</itemPath>
       <itemPath>sources/InputManager.cpp</itemPath>
       <itemPath>sources/Layer.cpp</itemPath>
       <itemPath>sources/Log.cpp</itemPath>
@@ -47,7 +50,6 @@
                    kind="IMPORTANT_FILES_FOLDER">
       <itemPath>Makefile</itemPath>
     </logicalFolder>
-    <itemPath>ResourceManager.h</itemPath>
   </logicalFolder>
   <projectmakefile>Makefile</projectmakefile>
   <confs>

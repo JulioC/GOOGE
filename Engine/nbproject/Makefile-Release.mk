@@ -35,6 +35,7 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 # Object Files
 OBJECTFILES= \
 	${OBJECTDIR}/sources/Scene.o \
+	${OBJECTDIR}/sources/ImageManager.o \
 	${OBJECTDIR}/sources/Object.o \
 	${OBJECTDIR}/sources/Game.o \
 	${OBJECTDIR}/sources/Log.o \
@@ -75,6 +76,11 @@ ${OBJECTDIR}/sources/Scene.o: sources/Scene.cpp
 	${MKDIR} -p ${OBJECTDIR}/sources
 	${RM} $@.d
 	$(COMPILE.cc) -O2 -Iincludes -MMD -MP -MF $@.d -o ${OBJECTDIR}/sources/Scene.o sources/Scene.cpp
+
+${OBJECTDIR}/sources/ImageManager.o: sources/ImageManager.cpp 
+	${MKDIR} -p ${OBJECTDIR}/sources
+	${RM} $@.d
+	$(COMPILE.cc) -O2 -Iincludes -MMD -MP -MF $@.d -o ${OBJECTDIR}/sources/ImageManager.o sources/ImageManager.cpp
 
 ${OBJECTDIR}/sources/Object.o: sources/Object.cpp 
 	${MKDIR} -p ${OBJECTDIR}/sources

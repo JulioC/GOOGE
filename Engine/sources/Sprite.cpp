@@ -6,11 +6,11 @@ Sprite::Sprite(Game* game, const char* filename, const Vector& position):
 _game(game),
 _image(NULL), 
 _position(position) {
-    _image = _game->video()->getImage(filename);
+    _image = _game->video()->images()->get(filename);
 }
 
 Sprite::~Sprite() {
-    _game->video()->releaseImage(&_image);
+    _game->video()->images()->release(&_image);
 }
 
 void Sprite::update() {

@@ -5,6 +5,7 @@
 #include <string>
 
 #include "Object.h"
+#include "ImageManager.h"
 #include "Image.h"
 #include "SDL/SDL.h"
 
@@ -27,8 +28,8 @@ public:
 
     bool initiated() const;
     
-    Image* getImage(const char* filename);
-    void releaseImage(Image** image);
+    SDL_Surface* screen() const;
+    ImageManager* images() const;
     
 private:    
     VideoManager();
@@ -42,7 +43,7 @@ private:
     
     SDL_Surface* _screen;
     
-    std::map<std::string, ImageResource*> _images;
+    ImageManager* _images;
 };
 
 #endif	/* VIDEOMANAGER_H */
