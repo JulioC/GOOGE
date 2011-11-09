@@ -6,6 +6,7 @@
                    projectFiles="true">
       <itemPath>includes/Entity.h</itemPath>
       <itemPath>includes/Font.h</itemPath>
+      <itemPath>includes/FontManager.h</itemPath>
       <itemPath>includes/Game.h</itemPath>
       <itemPath>includes/Image.h</itemPath>
       <itemPath>includes/ImageManager.h</itemPath>
@@ -30,6 +31,7 @@
                    displayName="Source Files"
                    projectFiles="true">
       <itemPath>sources/Font.cpp</itemPath>
+      <itemPath>sources/FontManager.cpp</itemPath>
       <itemPath>sources/Game.cpp</itemPath>
       <itemPath>sources/Image.cpp</itemPath>
       <itemPath>sources/ImageManager.cpp</itemPath>

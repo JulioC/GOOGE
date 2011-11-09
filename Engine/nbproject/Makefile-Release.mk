@@ -47,6 +47,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/sources/Vector.o \
 	${OBJECTDIR}/sources/TimeHandler.o \
 	${OBJECTDIR}/sources/Image.o \
+	${OBJECTDIR}/sources/FontManager.o \
 	${OBJECTDIR}/sources/InputManager.o
 
 
@@ -138,6 +139,11 @@ ${OBJECTDIR}/sources/Image.o: sources/Image.cpp
 	${MKDIR} -p ${OBJECTDIR}/sources
 	${RM} $@.d
 	$(COMPILE.cc) -O2 -Iincludes -MMD -MP -MF $@.d -o ${OBJECTDIR}/sources/Image.o sources/Image.cpp
+
+${OBJECTDIR}/sources/FontManager.o: sources/FontManager.cpp 
+	${MKDIR} -p ${OBJECTDIR}/sources
+	${RM} $@.d
+	$(COMPILE.cc) -O2 -Iincludes -MMD -MP -MF $@.d -o ${OBJECTDIR}/sources/FontManager.o sources/FontManager.cpp
 
 ${OBJECTDIR}/sources/InputManager.o: sources/InputManager.cpp 
 	${MKDIR} -p ${OBJECTDIR}/sources

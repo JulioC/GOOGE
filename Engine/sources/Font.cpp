@@ -6,7 +6,7 @@ _size(size),
 _font(NULL) {
     size_t len = strlen(filename);
     
-    _filename = new char[len];
+    _filename = new char[len + 1];
     strcpy(_filename, filename);
     
     _font = TTF_OpenFont(_filename, _size);
