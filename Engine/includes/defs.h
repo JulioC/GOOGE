@@ -8,6 +8,8 @@
 #include "Log.h"
 #include "Vector.h"
 
+typedef SDL_Color Color;
+
 class load_error { };
 
 #endif	/* DEFS_H */
