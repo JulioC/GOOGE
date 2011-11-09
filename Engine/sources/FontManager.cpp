@@ -23,7 +23,7 @@ Font* FontManager::load(const char* identifier) {
     
     Font* font = NULL;
     try{
-        font = new Font(filename, size);
+        font = new Font(_screen, filename, size);
     }
     catch(load_error e) {
         Log::error("Error on font load", this);
