@@ -21,17 +21,24 @@ Font* FontManager::load(const char* identifier) {
         size = atoi(str_size);
     }
     
-    Font* font;
+    Font* font = NULL;
     try{
         font = new Font(filename, size);
     }
     catch(load_error e) {
         Log::error("Error on font load", this);
     }
+    
+    delete[] buffer;
         
     return font;
 }
 
 std::string FontManager::identify(Font* obj) {
-    return std::string(obj->filename());
+    std::string identifier = "";
+    identifier += obj->filename();
+    identifier += ":";
+    identifier += obj->size();
+    
+    return identifier;
 }

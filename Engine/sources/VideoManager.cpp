@@ -19,7 +19,8 @@ VideoManager::VideoManager():
 _SDLInitiated(false),
 _TTFInitiated(false),
 _screen(NULL),
-_images(NULL) {
+_images(NULL),
+_fonts(NULL) {
 }
 
 VideoManager::~VideoManager() {
@@ -50,6 +51,8 @@ bool VideoManager::init(int width, int height, const char* title) {
             return false;
         }
         
+        _fonts = new FontManager(_screen);
+        
         _TTFInitiated = true;
     }
     
@@ -62,6 +65,11 @@ bool VideoManager::init(int width, int height, const char* title) {
 
 void VideoManager::release() {
     if(_TTFInitiated) {
+        if(_fonts != NULL) {
+            delete _fonts;
+            _fonts = NULL;
+        }
+        
         TTF_Quit();
         _TTFInitiated = false;
     }

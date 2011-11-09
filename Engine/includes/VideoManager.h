@@ -6,17 +6,10 @@
 
 #include "defs.h"
 #include "Object.h"
-
 #include "ImageManager.h"
-#include "Image.h"
+#include "FontManager.h"
 
 class VideoManager: public Object {
-private:
-    struct ImageResource {
-        unsigned int refCount;
-        Image* image;
-    };
-    
 public:
     static VideoManager* instance();
     
@@ -31,6 +24,7 @@ public:
     
     SDL_Surface* screen() const;
     ImageManager* images() const;
+    FontManager* fonts() const;
     
 private:    
     VideoManager();
@@ -45,6 +39,7 @@ private:
     SDL_Surface* _screen;
     
     ImageManager* _images;
+    FontManager* _fonts;
 };
 
 #endif	/* VIDEOMANAGER_H */
