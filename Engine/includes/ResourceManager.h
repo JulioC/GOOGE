@@ -47,7 +47,7 @@ public:
     }   
     
     void release(T* resource) {
-        std::string identifier = identify(*resource);
+        std::string identifier = identify(resource);
 
         _resources[identifier]->refCount--;
         if(_resources[identifier]->refCount == 0) {
@@ -55,8 +55,6 @@ public:
             delete _resources[identifier];
             _resources.erase(identifier);
         }
-
-        *resource = NULL;
     }
     
 protected:
