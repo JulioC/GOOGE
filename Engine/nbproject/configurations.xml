@@ -5,6 +5,7 @@
                    displayName="Header Files"
                    projectFiles="true">
       <itemPath>includes/Entity.h</itemPath>
+      <itemPath>includes/Font.h</itemPath>
       <itemPath>includes/Game.h</itemPath>
       <itemPath>includes/Image.h</itemPath>
       <itemPath>includes/ImageManager.h</itemPath>
@@ -15,9 +16,11 @@
       <itemPath>includes/ResourceManager.h</itemPath>
       <itemPath>includes/Scene.h</itemPath>
       <itemPath>includes/Sprite.h</itemPath>
+      <itemPath>includes/Surface.h</itemPath>
       <itemPath>includes/TimeHandler.h</itemPath>
       <itemPath>includes/Vector.h</itemPath>
       <itemPath>includes/VideoManager.h</itemPath>
+      <itemPath>includes/defs.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
                    displayName="Resource Files"
@@ -26,6 +29,7 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
+      <itemPath>sources/Font.cpp</itemPath>
       <itemPath>sources/Game.cpp</itemPath>
       <itemPath>sources/Image.cpp</itemPath>
       <itemPath>sources/ImageManager.cpp</itemPath>
@@ -35,6 +39,7 @@
       <itemPath>sources/Object.cpp</itemPath>
       <itemPath>sources/Scene.cpp</itemPath>
       <itemPath>sources/Sprite.cpp</itemPath>
+      <itemPath>sources/Surface.cpp</itemPath>
       <itemPath>sources/TimeHandler.cpp</itemPath>
       <itemPath>sources/Vector.cpp</itemPath>
       <itemPath>sources/VideoManager.cpp</itemPath>

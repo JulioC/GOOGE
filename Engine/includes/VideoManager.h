@@ -4,10 +4,11 @@
 #include <map>
 #include <string>
 
+#include "defs.h"
 #include "Object.h"
+
 #include "ImageManager.h"
 #include "Image.h"
-#include "SDL/SDL.h"
 
 class VideoManager: public Object {
 private:

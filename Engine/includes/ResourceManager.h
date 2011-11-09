@@ -4,8 +4,11 @@
 #include <map>
 #include <string>
 
+#include "defs.h"
+#include "Object.h"
+
 template<typename T>
-class ResourceManager {
+class ResourceManager: public Object {
 protected:
     struct Resource {
         unsigned int refCount;

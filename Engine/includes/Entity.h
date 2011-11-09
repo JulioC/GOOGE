@@ -1,6 +1,7 @@
 #ifndef ENTITY_H
 #define	ENTITY_H
 
+#include "defs.h"
 #include "Object.h"
 
 class Entity: public Object {

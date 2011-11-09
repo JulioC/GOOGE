@@ -3,7 +3,8 @@
 
 #include <vector>
 
-#include "Object.h"
+#include "defs.h"
+
 #include "VideoManager.h"
 #include "InputManager.h"
 #include "Scene.h"

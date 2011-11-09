@@ -10,12 +10,14 @@ ImageManager::~ImageManager() {
 }
 
 Image* ImageManager::load(const char* identifier) {
-    Image* img = new Image();
-    if(!img->load(identifier)) {
-        delete img;
-        return NULL;
+    Image* img = NULL;
+    try{
+        img = new Image(_screen, identifier);
     }
-    img->screen(_screen);
+    catch(load_error e) {
+        Log::error("Error on image load", this);
+    }
+        
     return img;
 }
 

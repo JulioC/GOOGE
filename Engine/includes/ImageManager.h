@@ -1,7 +1,7 @@
 #ifndef IMAGEMANAGER_H
 #define	IMAGEMANAGER_H
 
-#include "SDL/SDL.h"
+#include "defs.h"
 
 #include "ResourceManager.h"
 #include "Image.h"

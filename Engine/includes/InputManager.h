@@ -1,10 +1,8 @@
 #ifndef INPUTMANAGER_H
 #define	INPUTMANAGER_H
 
-#include "SDL/SDL.h"
+#include "defs.h"
 #include "Object.h"
-
-#include "Vector.h"
 
 class InputManager: public Object {
 public:

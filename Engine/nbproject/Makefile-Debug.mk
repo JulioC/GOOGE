@@ -40,8 +40,10 @@ OBJECTFILES= \
 	${OBJECTDIR}/sources/Game.o \
 	${OBJECTDIR}/sources/Log.o \
 	${OBJECTDIR}/sources/Sprite.o \
+	${OBJECTDIR}/sources/Surface.o \
 	${OBJECTDIR}/sources/Layer.o \
 	${OBJECTDIR}/sources/VideoManager.o \
+	${OBJECTDIR}/sources/Font.o \
 	${OBJECTDIR}/sources/Vector.o \
 	${OBJECTDIR}/sources/TimeHandler.o \
 	${OBJECTDIR}/sources/Image.o \
@@ -104,6 +106,11 @@ ${OBJECTDIR}/sources/Sprite.o: sources/Sprite.cpp
 	${RM} $@.d
 	$(COMPILE.cc) -g -Iincludes -MMD -MP -MF $@.d -o ${OBJECTDIR}/sources/Sprite.o sources/Sprite.cpp
 
+${OBJECTDIR}/sources/Surface.o: sources/Surface.cpp 
+	${MKDIR} -p ${OBJECTDIR}/sources
+	${RM} $@.d
+	$(COMPILE.cc) -g -Iincludes -MMD -MP -MF $@.d -o ${OBJECTDIR}/sources/Surface.o sources/Surface.cpp
+
 ${OBJECTDIR}/sources/Layer.o: sources/Layer.cpp 
 	${MKDIR} -p ${OBJECTDIR}/sources
 	${RM} $@.d
@@ -113,6 +120,11 @@ ${OBJECTDIR}/sources/VideoManager.o: sources/VideoManager.cpp
 	${MKDIR} -p ${OBJECTDIR}/sources
 	${RM} $@.d
 	$(COMPILE.cc) -g -Iincludes -MMD -MP -MF $@.d -o ${OBJECTDIR}/sources/VideoManager.o sources/VideoManager.cpp
+
+${OBJECTDIR}/sources/Font.o: sources/Font.cpp 
+	${MKDIR} -p ${OBJECTDIR}/sources
+	${RM} $@.d
+	$(COMPILE.cc) -g -Iincludes -MMD -MP -MF $@.d -o ${OBJECTDIR}/sources/Font.o sources/Font.cpp
 
 ${OBJECTDIR}/sources/Vector.o: sources/Vector.cpp 
 	${MKDIR} -p ${OBJECTDIR}/sources

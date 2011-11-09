@@ -1,7 +1,9 @@
 #ifndef TIMEHANDLER_H
 #define	TIMEHANDLER_H
 
-class TimeHandler {
+#include "defs.h"
+
+class TimeHandler: public Object {
 public:
     TimeHandler();
     ~TimeHandler();

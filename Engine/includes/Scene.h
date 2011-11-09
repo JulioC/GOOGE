@@ -3,9 +3,10 @@
 
 #include <vector>
 
-#include "Object.h"
-#include "VideoManager.h"
+#include "defs.h"
+
 #include "InputManager.h"
+#include "VideoManager.h"
 #include "Layer.h"
 
 class Game;

@@ -1,6 +1,7 @@
 #ifndef LOG_H
 #define	LOG_H
 
+#include "defs.h"
 #include "Object.h"
 
 class Log {
