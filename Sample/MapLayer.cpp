@@ -2,7 +2,7 @@
 #include "PlayerSprite.h"
 
 MapLayer::MapLayer(Game* game) : 
-Layer::Layer(game) {
+Layer(game) {
     
     Vector initialPos(0,0);
     Sprite* playerSprite = new PlayerSprite(_game, initialPos);

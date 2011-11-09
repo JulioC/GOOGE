@@ -2,7 +2,7 @@
 #include "MapLayer.h"
 
 FirstScene::FirstScene(Game* game) : 
-Scene::Scene(game) {
+Scene(game) {
     
     Layer* mapLayer = new MapLayer(_game);
     addLayer(mapLayer);
