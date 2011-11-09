@@ -33,7 +33,7 @@ int Font::size() const {
     return _size;
 }
 
-Text* Font::render(const char* str, SDL_Color color) {
+Text* Font::render(const char* str, Color color) {
     SDL_Surface* surface = NULL;
     surface = TTF_RenderText_Blended(_font, str, color);
     if(surface == NULL) {

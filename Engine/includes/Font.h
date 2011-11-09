@@ -12,7 +12,7 @@ public:
     const char* filename() const;
     int size() const;
   
-    Text* render(const char* str, SDL_Color color);
+    Text* render(const char* str, Color color);
     
 private:
     Font(const Font&);
