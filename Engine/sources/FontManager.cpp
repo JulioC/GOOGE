@@ -14,7 +14,7 @@ Font* FontManager::load(const char* identifier) {
     strcpy(buffer, identifier);
     
     char* filename = strtok(buffer, ":");
-    char* str_size = strtok(buffer, ":");
+    char* str_size = strtok(NULL, ":");
     
     int size = 12;
     if(str_size != NULL) {
