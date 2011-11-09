@@ -41,14 +41,16 @@ OBJECTFILES= \
 	${OBJECTDIR}/sources/Log.o \
 	${OBJECTDIR}/sources/Sprite.o \
 	${OBJECTDIR}/sources/Surface.o \
+	${OBJECTDIR}/sources/Text.o \
 	${OBJECTDIR}/sources/Layer.o \
 	${OBJECTDIR}/sources/VideoManager.o \
 	${OBJECTDIR}/sources/Font.o \
 	${OBJECTDIR}/sources/Vector.o \
+	${OBJECTDIR}/sources/Label.o \
 	${OBJECTDIR}/sources/TimeHandler.o \
 	${OBJECTDIR}/sources/Image.o \
-	${OBJECTDIR}/sources/FontManager.o \
-	${OBJECTDIR}/sources/InputManager.o
+	${OBJECTDIR}/sources/InputManager.o \
+	${OBJECTDIR}/sources/FontManager.o
 
 
 # C Compiler Flags
@@ -110,6 +112,11 @@ ${OBJECTDIR}/sources/Surface.o: sources/Surface.cpp
 	${RM} $@.d
 	$(COMPILE.cc) -O2 -Iincludes -MMD -MP -MF $@.d -o ${OBJECTDIR}/sources/Surface.o sources/Surface.cpp
 
+${OBJECTDIR}/sources/Text.o: sources/Text.cpp 
+	${MKDIR} -p ${OBJECTDIR}/sources
+	${RM} $@.d
+	$(COMPILE.cc) -O2 -Iincludes -MMD -MP -MF $@.d -o ${OBJECTDIR}/sources/Text.o sources/Text.cpp
+
 ${OBJECTDIR}/sources/Layer.o: sources/Layer.cpp 
 	${MKDIR} -p ${OBJECTDIR}/sources
 	${RM} $@.d
@@ -130,6 +137,11 @@ ${OBJECTDIR}/sources/Vector.o: sources/Vector.cpp
 	${RM} $@.d
 	$(COMPILE.cc) -O2 -Iincludes -MMD -MP -MF $@.d -o ${OBJECTDIR}/sources/Vector.o sources/Vector.cpp
 
+${OBJECTDIR}/sources/Label.o: sources/Label.cpp 
+	${MKDIR} -p ${OBJECTDIR}/sources
+	${RM} $@.d
+	$(COMPILE.cc) -O2 -Iincludes -MMD -MP -MF $@.d -o ${OBJECTDIR}/sources/Label.o sources/Label.cpp
+
 ${OBJECTDIR}/sources/TimeHandler.o: sources/TimeHandler.cpp 
 	${MKDIR} -p ${OBJECTDIR}/sources
 	${RM} $@.d
@@ -140,15 +152,15 @@ ${OBJECTDIR}/sources/Image.o: sources/Image.cpp
 	${RM} $@.d
 	$(COMPILE.cc) -O2 -Iincludes -MMD -MP -MF $@.d -o ${OBJECTDIR}/sources/Image.o sources/Image.cpp
 
-${OBJECTDIR}/sources/FontManager.o: sources/FontManager.cpp 
-	${MKDIR} -p ${OBJECTDIR}/sources
-	${RM} $@.d
-	$(COMPILE.cc) -O2 -Iincludes -MMD -MP -MF $@.d -o ${OBJECTDIR}/sources/FontManager.o sources/FontManager.cpp
-
 ${OBJECTDIR}/sources/InputManager.o: sources/InputManager.cpp 
 	${MKDIR} -p ${OBJECTDIR}/sources
 	${RM} $@.d
 	$(COMPILE.cc) -O2 -Iincludes -MMD -MP -MF $@.d -o ${OBJECTDIR}/sources/InputManager.o sources/InputManager.cpp
+
+${OBJECTDIR}/sources/FontManager.o: sources/FontManager.cpp 
+	${MKDIR} -p ${OBJECTDIR}/sources
+	${RM} $@.d
+	$(COMPILE.cc) -O2 -Iincludes -MMD -MP -MF $@.d -o ${OBJECTDIR}/sources/FontManager.o sources/FontManager.cpp
 
 # Subprojects
 .build-subprojects:

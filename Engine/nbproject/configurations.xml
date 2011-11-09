@@ -11,6 +11,7 @@
       <itemPath>includes/Image.h</itemPath>
       <itemPath>includes/ImageManager.h</itemPath>
       <itemPath>includes/InputManager.h</itemPath>
+      <itemPath>includes/Label.h</itemPath>
       <itemPath>includes/Layer.h</itemPath>
       <itemPath>includes/Log.h</itemPath>
       <itemPath>includes/Object.h</itemPath>
@@ -18,6 +19,7 @@
       <itemPath>includes/Scene.h</itemPath>
       <itemPath>includes/Sprite.h</itemPath>
       <itemPath>includes/Surface.h</itemPath>
+      <itemPath>includes/Text.h</itemPath>
       <itemPath>includes/TimeHandler.h</itemPath>
       <itemPath>includes/Vector.h</itemPath>
       <itemPath>includes/VideoManager.h</itemPath>
@@ -36,12 +38,14 @@
       <itemPath>sources/Image.cpp</itemPath>
       <itemPath>sources/ImageManager.cpp</itemPath>
       <itemPath>sources/InputManager.cpp</itemPath>
+      <itemPath>sources/Label.cpp</itemPath>
       <itemPath>sources/Layer.cpp</itemPath>
       <itemPath>sources/Log.cpp</itemPath>
       <itemPath>sources/Object.cpp</itemPath>
       <itemPath>sources/Scene.cpp</itemPath>
       <itemPath>sources/Sprite.cpp</itemPath>
       <itemPath>sources/Surface.cpp</itemPath>
+      <itemPath>sources/Text.cpp</itemPath>
       <itemPath>sources/TimeHandler.cpp</itemPath>
       <itemPath>sources/Vector.cpp</itemPath>
       <itemPath>sources/VideoManager.cpp</itemPath>
@@ -70,6 +74,7 @@
           <incDir>
             <pElem>includes</pElem>
           </incDir>
+          <commandLine>-Wall</commandLine>
         </ccTool>
         <archiverTool>
         </archiverTool>
