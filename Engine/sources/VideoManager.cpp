@@ -104,3 +104,7 @@ bool VideoManager::initiated() const {
 ImageManager* VideoManager::images() const {
     return _images;
 }
+
+FontManager* VideoManager::fonts() const {
+    return _fonts;
+}
