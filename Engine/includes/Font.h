@@ -2,6 +2,7 @@
 #define	FONT_H
 
 #include "defs.h"
+#include "Text.h"
 
 class Font: public Object {
 public:
@@ -11,8 +12,7 @@ public:
     const char* filename() const;
     int size() const;
   
-    //@TODO: implement Font::render
-    Text* render(const char* str);
+    Text* render(const char* str, SDL_Color color);
     
 private:
     Font(const Font&);

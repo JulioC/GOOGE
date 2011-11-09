@@ -32,3 +32,18 @@ const char* Font::filename() const {
 int Font::size() const {
     return _size;
 }
+
+Text* Font::render(const char* str, SDL_Color color) {
+    SDL_Surface* surface = NULL;
+    surface = TTF_RenderText_Blended(_font, str, color);
+    if(surface == NULL) {
+        throw load_error();
+    }
+    
+    Text* text = new Text(_screen, surface);
+    if(text == NULL) {
+        throw load_error();
+    }
+    
+    return text;
+}
