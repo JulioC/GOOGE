@@ -20,12 +20,12 @@ public:
 protected:
     Vector _position;
     Image* _image;
+
+    Game* _game;
     
 private:    
     Sprite(const Sprite&);
     const Sprite& operator=(const Sprite&);
-    
-    Game* _game;
 
 };
 
