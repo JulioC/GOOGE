@@ -4,9 +4,8 @@
 #include <vector>
 
 #include "defs.h"
-
-#include "VideoManager.h"
 #include "InputManager.h"
+#include "VideoManager.h"
 #include "Scene.h"
 
 class Game: public Object {

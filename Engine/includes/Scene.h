@@ -4,10 +4,9 @@
 #include <vector>
 
 #include "defs.h"
-
 #include "InputManager.h"
-#include "VideoManager.h"
 #include "Layer.h"
+#include "VideoManager.h"
 
 class Game;
 

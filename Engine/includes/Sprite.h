@@ -2,10 +2,8 @@
 #define	SPRITE_H
 
 #include "defs.h"
-
 #include "Entity.h"
 #include "Image.h"
-#include "Vector.h"
 
 class Game;
 

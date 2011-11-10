@@ -2,8 +2,8 @@
 #define	FONTMANAGER_H
 
 #include "defs.h"
-#include "ResourceManager.h"
 #include "Font.h"
+#include "ResourceManager.h"
 
 class FontManager: public ResourceManager<Font> {
 public:

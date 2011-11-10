@@ -5,9 +5,8 @@
 #include <stack>
 
 #include "defs.h"
-#include "Object.h"
 #include "Entity.h"
-
+#include "Object.h"
 
 class Game;
 

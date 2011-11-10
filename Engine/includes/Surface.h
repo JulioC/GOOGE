@@ -3,7 +3,6 @@
 
 #include "defs.h"
 #include "Object.h"
-#include "Vector.h"
 
 class Surface: public Object {
 public:

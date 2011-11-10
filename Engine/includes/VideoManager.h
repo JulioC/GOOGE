@@ -5,9 +5,9 @@
 #include <string>
 
 #include "defs.h"
-#include "Object.h"
-#include "ImageManager.h"
 #include "FontManager.h"
+#include "ImageManager.h"
+#include "Object.h"
 
 class VideoManager: public Object {
 public:
