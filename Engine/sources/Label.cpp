@@ -3,10 +3,11 @@
 
 Label::Label(Game* game, const char* fontname, int size):
 _position(0, 0),
-_color(),
 _game(game),
+_color(),
 _font(NULL),
-_text(NULL) {
+_text(NULL),
+_message(NULL) {
     int len = strlen(fontname);
     char* identifier = new char[len + 16]; // additional space for the number
     sprintf(identifier, "%s:%i", fontname, size);
@@ -47,6 +48,8 @@ void Label::setPosition(const Vector& position) {
 
 void Label::setColor(const Color& color) {
     _color = color;
+    
+    render();
 }
 
 const char* Label::getMessage() const {
@@ -58,12 +61,20 @@ void Label::setMessage(const char* message) {
     char* buffer = new char[len + 1];
     strcpy(buffer, message);
     
-    Text* tmp = _font->render(buffer, _color);
-    if(tmp != NULL) {
-        delete _text;
-        _text = tmp;
-        
+    if(_message != NULL) {
         delete[] _message;
-        _message = buffer;
+    }
+    _message = buffer;
+    
+    render();
+}
+
+void Label::render() {
+    Text* tmp = _font->render(_message, _color);
+    if(tmp != NULL) {
+        if(_text != NULL) {
+            delete _text;
+        }
+        _text = tmp;
     }
 }

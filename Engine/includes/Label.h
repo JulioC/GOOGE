@@ -24,15 +24,18 @@ public:
     
 protected:
     Vector _position;
-    Color _color;
     
     Game* _game;
     
 private:
     Label(const Label&);
     const Label& operator=(const Label&);
+
+    void render();
     
     const char* _message;
+
+    Color _color;
     
     Font* _font;
     Text* _text;
