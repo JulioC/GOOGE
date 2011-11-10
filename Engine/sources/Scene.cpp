@@ -1,7 +1,6 @@
-#include <vector>
-
 #include "Scene.h"
-#include "Log.h"
+
+#include <vector>
 
 Scene::Scene(Game* game):
 _game(game),

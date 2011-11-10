@@ -1,7 +1,5 @@
 #include "TimeHandler.h"
 
-#include <SDL/SDL_timer.h>
-
 TimeHandler::TimeHandler():
 _lastTick(0),
 _elapsed(0),

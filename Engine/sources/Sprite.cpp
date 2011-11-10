@@ -1,6 +1,7 @@
 #include "Sprite.h"
-#include "VideoManager.h"
+
 #include "Game.h"
+#include "VideoManager.h"
 
 Sprite::Sprite(Game* game, const char* filename, const Vector& position):
 _game(game),

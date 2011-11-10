@@ -1,7 +1,5 @@
-#include <stddef.h>
-
 #include "Game.h"
-#include "Log.h"
+
 #include "Scene.h"
 
 Game::Game():

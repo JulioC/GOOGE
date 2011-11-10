@@ -1,8 +1,5 @@
 #include "VideoManager.h"
 
-#include <SDL/SDL_ttf.h>
-
-#include "Log.h"
 #include "ImageManager.h"        
 
 VideoManager* VideoManager::_instance = NULL;

@@ -1,4 +1,5 @@
 #include "Label.h"
+
 #include "Game.h"
 
 Label::Label(Game* game, const char* fontname, int size):

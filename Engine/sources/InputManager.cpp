@@ -1,6 +1,5 @@
 #include "InputManager.h"
 
-#include "Log.h"
 #include "Game.h"
 
 InputManager* InputManager::_instance = NULL;
