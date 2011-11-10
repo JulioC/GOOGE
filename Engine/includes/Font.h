@@ -5,14 +5,14 @@
 #include "Text.h"
 
 class Font: public Object {
-public:
+public:    
     Font(SDL_Surface* screen, const char* filename, int size);
     virtual ~Font();
     
     const char* filename() const;
     int size() const;
   
-    Text* render(const char* str, Color color);
+    Text* render(const char* str, Color color, bool blended=true);
     
 private:
     Font(const Font&);
