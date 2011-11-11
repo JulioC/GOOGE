@@ -8,9 +8,6 @@ public:
     TimeHandler();
     ~TimeHandler();
         
-    bool init();
-    void release();
-    
     void update();
     
     int fps() const;
