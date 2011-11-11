@@ -38,3 +38,11 @@ const char* Image::filename() const {
     return _filename;
 }
 
+int Image::width() const {
+    return _surface->w;
+}
+
+int Image::height() const {
+    return _surface->h;
+}
+
