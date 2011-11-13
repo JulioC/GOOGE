@@ -22,7 +22,7 @@ Image* ImageManager::load(const char* identifier) {
 
 char* ImageManager::identify(Image* obj) {
     const char* filename = obj->filename();
-    char* identifier = new char[strlen(filename) + 1];
+    char* identifier = new char[sizeof(filename)];
     strcpy(identifier, filename);
     
     return identifier;
