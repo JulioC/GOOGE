@@ -5,6 +5,7 @@
 Game::Game():
 _video(NULL),
 _input(NULL),
+_time(NULL),
 _ended(false),
 _activeScene(NULL) {
 }
@@ -32,6 +33,8 @@ bool Game::setup() {
         return false;
     }
     
+    _time = new TimeHandler();
+    
     _ended = false;
    
     Log::message("Game setup", this);
@@ -49,12 +52,21 @@ void Game::cleanup() {
         delete _nextScene;
         _nextScene = NULL;
     }
-        
-    _video->release();
-    _video = NULL;
     
-    _input->release();
-    _input = NULL;
+    if(_time != NULL) {        
+        delete _time;
+        _time = NULL;
+    }
+     
+    if(_video != NULL) {
+        _video->release();
+        _video = NULL;
+    }
+    
+    if(_input != NULL) {
+        _input->release();
+        _input = NULL;
+    }
     
     SDL_Quit();
     
@@ -64,6 +76,7 @@ void Game::cleanup() {
 void Game::run() {
     _input->update();
     _ended = _input->terminated();
+    _time->update();
     
     if(_activeScene == NULL) {
         Log::error("No active scene", this);
