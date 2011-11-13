@@ -14,7 +14,7 @@ Image* ImageManager::load(const char* identifier) {
         img = new Image(_screen, identifier);
     }
     catch(LoadException e) {
-        Log::error("Error on image load", this);
+        Log::error(this, "Error on image load");
     }
         
     return img;

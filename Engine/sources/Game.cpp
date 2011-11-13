@@ -16,20 +16,19 @@ Game::~Game() {
 
 bool Game::setup() {
     if(SDL_Init(0) == -1) {
-        Log::error("Unable to initialize the SDL", this);
-        Log::error(SDL_GetError(), this);
+        Log::error(this, "Unable to initialize the SDL: %s", SDL_GetError());
         return false;
     }
     
     _video = VideoManager::instance();
     if(!_video->init(640, 480, "GOOGE Game")) {
-        Log::error("Failed to initialize VideoManager", this);
+        Log::error(this, "Failed to initialize VideoManager");
         return false;
     }
     
     _input = InputManager::instance();
     if(!_input->init()) {
-        Log::error("Failed to initialize InputManager", this);
+        Log::error(this, "Failed to initialize InputManager");
         return false;
     }
     
@@ -37,7 +36,7 @@ bool Game::setup() {
     
     _ended = false;
    
-    Log::message("Game setup", this);
+    Log::message(this, "Game setup");
  
     return true;
 }
@@ -70,7 +69,7 @@ void Game::cleanup() {
     
     SDL_Quit();
     
-    Log::message("Game cleanup", this);
+    Log::message(this, "Game cleanup");
 }
 
 void Game::run() {
@@ -79,7 +78,7 @@ void Game::run() {
     _time->update();
     
     if(_activeScene == NULL) {
-        Log::error("No active scene", this);
+        Log::error(this, "No active scene");
         _ended = true;
     }
     else {
@@ -90,7 +89,7 @@ void Game::run() {
         }
         else {
             if(!activeNextScene()) {
-                Log::error("Failed to change scene", this);
+                Log::error(this, "Failed to change scene");
                 _ended = true;
             }
         }
@@ -116,7 +115,7 @@ void Game::setNextScene(Scene* scene) {
     
     if(_activeScene == NULL) {
         if(!activeNextScene()) {
-            Log::error("Failed to change scene", this);
+            Log::error(this, "Failed to change scene");
             _ended = true;
         }
     }
@@ -128,7 +127,7 @@ void Game::setTitle(const char* title) {
 
 bool Game::activeNextScene() {
     if(_nextScene == NULL) {
-        Log::error("Tried to active null scene", this);
+        Log::error(this, "Tried to active null scene");
         return false;
     }
     

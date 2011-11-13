@@ -26,7 +26,7 @@ Font* FontManager::load(const char* identifier) {
         font = new Font(_screen, filename, size);
     }
     catch(LoadException e) {
-        Log::error("Error on font load", this);
+        Log::error(this, "Error on font load \"%s\"", filename);
     }
     
     delete[] buffer;

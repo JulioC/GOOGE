@@ -6,12 +6,20 @@
 
 class Log {
 public:
-    static void message(const char* msg, const Object* caller, bool show=false);
-    static void error(const char* msg, const Object* caller, bool show=true);
+    enum level {
+        level_high, // show everything, write everything
+        level_medium, // show errors, write everything
+        level_low, // show nothing, write errors
+        level_none // show nothing, write nothing
+    };
+    
+    static void message(const Object* caller, const char* format, ...);
+    static void error(const Object* caller, const char* format, ...);
 
     static const char* last();
     
     static void setFile(const char* filename);
+    static void setLevel(level lvl);
 
 private:
     Log();
@@ -19,10 +27,14 @@ private:
     const Log& operator=(const Log&);
     ~Log();
     
-    static void write(const char* message);
+    static void log(const char* description, bool error, const Object* caller);
     
-    static const char* _filename;
+    static void write(const char* message);
+        
+    static char _filename[256];
     static char _last[256];
+    
+    static level _level;
     
 };
 

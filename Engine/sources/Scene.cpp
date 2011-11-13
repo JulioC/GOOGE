@@ -33,7 +33,7 @@ void Scene::draw() {
 
 void Scene::addLayer(Layer* layer) {
     if(layer == NULL) {
-        Log::error("Tried to add a null layer", this);
+        Log::error(this, "Tried to add a null layer");
     }
     else {
         _layers.push_back(layer);

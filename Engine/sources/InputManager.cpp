@@ -42,7 +42,7 @@ bool InputManager::init() {
         _initiated = true;
     }
     
-    Log::message("InputManager initiated", this);
+    Log::message(this, "InputManager initiated");
     
     return true;
 }
@@ -64,7 +64,7 @@ void InputManager::release() {
         _initiated = false;
     }
     
-    Log::message("InputManager released", this);
+    Log::message(this, "InputManager released");
 }
 
 void InputManager::update() {

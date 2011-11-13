@@ -40,7 +40,7 @@ void Layer::draw() {
 int Layer::addEntity(Entity* entity) {
     int index = -1;
     if(entity == NULL) {
-        Log::error("Tried to add a null sprite", this);
+        Log::error(this, "Tried to add a null sprite");
     }
     else {
         if(_indexes.empty()) {
