@@ -10,7 +10,7 @@ _font(NULL) {
     
     _font = TTF_OpenFont(_filename, _size);
     if(_font == NULL) {
-        throw load_error();
+        throw LoadException("Unable to open font");
     }
 }
 
@@ -42,13 +42,10 @@ Text* Font::render(const char* str, Color color, bool blended) {
     }
 
     if(surface == NULL) {
-        throw load_error();
+        throw LoadException("Unable to render text");
     }
     
     Text* text = new Text(_screen, surface);
-    if(text == NULL) {
-        throw load_error();
-    }
     
     return text;
 }

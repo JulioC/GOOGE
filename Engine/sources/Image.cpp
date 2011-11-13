@@ -11,13 +11,13 @@ _filename(NULL) {
     
     image = IMG_Load(_filename);
     if(image == NULL) {
-        throw load_error();
+        throw LoadException("Unable to load image");
     }
 
     optimized = SDL_DisplayFormatAlpha(image);
     SDL_FreeSurface(image);
     if(optimized == NULL) {
-        throw load_error();
+        throw LoadException("Unable to optimize image");
     }
     
     _surface = optimized;
