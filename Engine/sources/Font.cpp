@@ -4,10 +4,8 @@ Font::Font(SDL_Surface* screen, const char* filename, int size):
 _filename(NULL),
 _size(size),
 _screen(screen),
-_font(NULL) {
-    size_t len = strlen(filename);
-    
-    _filename = new char[len + 1];
+_font(NULL) {    
+    _filename = new char[sizeof(filename)];
     strcpy(_filename, filename);
     
     _font = TTF_OpenFont(_filename, _size);
