@@ -15,7 +15,7 @@ private:
     const ImageManager& operator=(const ImageManager&);
 
     Image* load(const char* identifier);
-    std::string identify(Image* obj);
+    char* identify(Image* obj);
     
     SDL_Surface* _screen;
 };

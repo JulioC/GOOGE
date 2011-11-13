@@ -1,4 +1,5 @@
 #include "FontManager.h"
+#include <sstream>
 
 FontManager::FontManager(SDL_Surface* screen):
 ResourceManager(),
@@ -34,11 +35,10 @@ Font* FontManager::load(const char* identifier) {
     return font;
 }
 
-std::string FontManager::identify(Font* obj) {
-    std::string identifier = "";
-    identifier += obj->filename();
-    identifier += ":";
-    identifier += obj->size();
+char* FontManager::identify(Font* obj) {
+    const char* filename = obj->filename();
+    char* identifier = new char[strlen(filename) + 16]; // extra space for size
+    sprintf(identifier, "%s:%d", filename, obj->size());
     
     return identifier;
 }

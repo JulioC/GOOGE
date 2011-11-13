@@ -47,19 +47,22 @@ public:
     }   
     
     void release(T* resource) {
-        std::string identifier = identify(resource);
-
+        char* cstr_identifier = identify(resource);
+        std::string identifier = cstr_identifier;
+        
         _resources[identifier]->refCount--;
         if(_resources[identifier]->refCount == 0) {
             delete _resources[identifier]->resource;
             delete _resources[identifier];
             _resources.erase(identifier);
         }
+        
+        delete[] cstr_identifier;
     }
     
 protected:
     virtual T* load(const char* identifier) = 0;
-    virtual std::string identify(T* obj) = 0;
+    virtual char* identify(T* obj) = 0;
     
 private:
     ResourceManager(const ResourceManager&);

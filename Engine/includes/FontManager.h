@@ -16,7 +16,7 @@ private:
     const FontManager& operator=(const FontManager&);
     
     Font* load(const char* identifier);
-    std::string identify(Font* obj);
+    char* identify(Font* obj);
     
     SDL_Surface* _screen;
 

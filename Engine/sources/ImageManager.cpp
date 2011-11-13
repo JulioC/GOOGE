@@ -20,6 +20,10 @@ Image* ImageManager::load(const char* identifier) {
     return img;
 }
 
-std::string ImageManager::identify(Image* obj) {
-    return std::string(obj->filename());
+char* ImageManager::identify(Image* obj) {
+    const char* filename = obj->filename();
+    char* identifier = new char[strlen(filename) + 1];
+    strcpy(identifier, filename);
+    
+    return identifier;
 }
