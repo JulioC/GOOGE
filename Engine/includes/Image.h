@@ -12,6 +12,7 @@ public:
     
     int width() const;
     int height() const;
+    Vector size() const;
     
 private:
     Image(const Image&);
