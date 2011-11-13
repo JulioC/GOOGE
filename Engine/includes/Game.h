@@ -5,6 +5,7 @@
 
 #include "defs.h"
 #include "InputManager.h"
+#include "TimeHandler.h"
 #include "VideoManager.h"
 #include "Scene.h"
 
@@ -30,6 +31,8 @@ protected:
         
     VideoManager* _video;
     InputManager* _input;
+    
+    TimeHandler* _time;
     
 private:
     Game(const Game&);
