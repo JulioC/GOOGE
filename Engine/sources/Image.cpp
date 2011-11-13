@@ -2,10 +2,8 @@
 
 Image::Image(SDL_Surface* screen, const char* filename):
 Surface(screen),
-_filename(NULL) {
-    size_t len = strlen(filename);
-    
-    _filename = new char[len + 1];
+_filename(NULL) {    
+    _filename = new char[sizeof(filename)];
     strcpy(_filename, filename);
     
     SDL_Surface *image = NULL;
