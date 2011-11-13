@@ -10,8 +10,7 @@ FontManager::~FontManager() {
 }
 
 Font* FontManager::load(const char* identifier) {
-    int len = strlen(identifier);
-    char* buffer = new char[len + 1];
+    char* buffer = new char[sizeof(identifier)];
     strcpy(buffer, identifier);
     
     char* filename = strtok(buffer, ":");
@@ -37,7 +36,7 @@ Font* FontManager::load(const char* identifier) {
 
 char* FontManager::identify(Font* obj) {
     const char* filename = obj->filename();
-    char* identifier = new char[strlen(filename) + 16]; // extra space for size
+    char* identifier = new char[sizeof(filename) + 16]; // extra space for size
     sprintf(identifier, "%s:%d", filename, obj->size());
     
     return identifier;
