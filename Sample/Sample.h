@@ -8,7 +8,7 @@ public:
     Sample();
     ~Sample();
     
-    bool setup();
+    void setup();
 
 private:
     Sample(const Sample&);

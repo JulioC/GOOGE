@@ -7,16 +7,19 @@ using namespace std;
 int main(int argc, char** argv) {
     Game* game = new Sample();
     
-    if(!game->setup()) {
-        return 1;
+    try {
+        game->setup();
+        
+        while(!game->ended()) {
+            game->run();
+        }
     }
-    
-    while(!game->ended()) {
-        game->run();
+    catch(Exception e) {
+        game->cleanup();
     }
-    
-    game->cleanup();
 
+    game->cleanup();
+    
     return 0;
 }
 

@@ -7,15 +7,10 @@ Sample::Sample() {
 Sample::~Sample() {
 }
 
-bool Sample::setup() {
-    
-    if(!Game::setup()) {
-        return false;
-    }
+void Sample::setup() {
+    Game::setup();
     
     Scene* firstScene = new FirstScene(this);
     Game::setNextScene(firstScene);
-    
-    return true;
     
 }
