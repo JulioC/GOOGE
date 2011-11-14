@@ -15,7 +15,7 @@ public:
     
     ~VideoManager();
     
-    bool init(int width, int height, const char* title);
+    void init(int width, int height, const char* title);
     void release();
 
     void update();

@@ -14,7 +14,7 @@ public:
     Game();
     virtual ~Game();
     
-    virtual bool setup();
+    virtual void setup();
     virtual void cleanup();
     
     virtual void run();

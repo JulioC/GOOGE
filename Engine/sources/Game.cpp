@@ -14,22 +14,20 @@ Game::~Game() {
     cleanup();
 }
 
-bool Game::setup() {
-    if(SDL_Init(0) == -1) {
-        Log::error(this, "Unable to initialize the SDL: %s", SDL_GetError());
-        return false;
-    }
+void Game::setup() {
+    try {
+        if(SDL_Init(0) == -1) {
+            throw InitException("Unable to initialize the SDL");
+        }
+        _video = VideoManager::instance();
+        _video->init(640, 480, "GOOGE Game");
     
-    _video = VideoManager::instance();
-    if(!_video->init(640, 480, "GOOGE Game")) {
-        Log::error(this, "Failed to initialize VideoManager");
-        return false;
+        _input = InputManager::instance();
+        _input->init();
     }
-    
-    _input = InputManager::instance();
-    if(!_input->init()) {
-        Log::error(this, "Failed to initialize InputManager");
-        return false;
+    catch(InitException e) {
+        Log::error(this, "%s: %s", e.message(), SDL_GetError());
+        throw InitException("Unable to initialize GOOGE");
     }
     
     _time = new TimeHandler();
@@ -37,8 +35,6 @@ bool Game::setup() {
     _ended = false;
    
     Log::message(this, "Game setup");
- 
-    return true;
 }
 
 void Game::cleanup() {   

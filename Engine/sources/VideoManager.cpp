@@ -24,15 +24,14 @@ VideoManager::~VideoManager() {
     release();
 }
 
-bool VideoManager::init(int width, int height, const char* title) {
+void VideoManager::init(int width, int height, const char* title) {
     SDL_InitSubSystem(SDL_INIT_VIDEO);
     
     if(!_SDLInitiated) {
         _screen = SDL_SetVideoMode(width, height, 0, SDL_HWSURFACE|SDL_DOUBLEBUF);
 
         if(_screen == NULL) {
-            Log::error(this, "Unable to get the video device: %s", SDL_GetError());
-            return false;
+            throw InitException("Unable to set video mode");
         }
 
         _images = new ImageManager(_screen);
@@ -42,8 +41,7 @@ bool VideoManager::init(int width, int height, const char* title) {
     
     if(!_TTFInitiated) {
         if(TTF_Init() == -1) {
-            Log::error(this, "Unable to load font manager", SDL_GetError());
-            return false;
+            throw InitException("Unable to initialize font device");
         }
         
         _fonts = new FontManager(_screen);
@@ -54,8 +52,6 @@ bool VideoManager::init(int width, int height, const char* title) {
     SDL_WM_SetCaption(title, NULL);
     
     Log::message(this, "VideoManager initiated");
-    
-    return true;
 }
 
 void VideoManager::release() {
