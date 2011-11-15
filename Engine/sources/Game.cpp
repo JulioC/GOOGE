@@ -75,7 +75,7 @@ void Game::run() {
     
     if(_activeScene == NULL) {
         Log::error(this, "No active scene");
-        _ended = true;
+        throw Exception("Game failed to run");
     }
     else {
         _activeScene->update();
