@@ -3,8 +3,8 @@
 #include "Game.h"
 
 Label::Label(Game* game, const char* fontname, int size):
+Entity(game),
 _position(0, 0),
-_game(game),
 _color(),
 _font(NULL),
 _text(NULL),

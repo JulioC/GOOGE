@@ -4,7 +4,7 @@
 #include "VideoManager.h"
 
 Sprite::Sprite(Game* game, const char* filename, const Vector& position):
-_game(game),
+Entity(game),
 _image(NULL), 
 _position(position),
 _frameSize(0, 0) {
@@ -13,7 +13,7 @@ _frameSize(0, 0) {
 }
 
 Sprite::Sprite(Game* game, const char* filename, const Vector& position, const Vector& frameSize):
-_game(game),
+Entity(game),
 _image(NULL), 
 _position(position),
 _frameSize(frameSize) {

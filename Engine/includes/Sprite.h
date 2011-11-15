@@ -5,11 +5,10 @@
 #include "Entity.h"
 #include "Image.h"
 
-class Game;
-
 class Sprite: public Entity {
 public:
     Sprite(Game* game, const char* filename, const Vector& position);
+    Sprite(Game* game, const char* filename, const Vector& position, const Vector& frameSize);
     virtual ~Sprite();
 
     virtual void update();
@@ -19,11 +18,12 @@ protected:
     Vector _position;
     Image* _image;
 
-    Game* _game;
-    
 private:    
     Sprite(const Sprite&);
     const Sprite& operator=(const Sprite&);
+    
+    Vector _frameSize;
+    
 
 };
 

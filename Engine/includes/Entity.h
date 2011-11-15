@@ -4,10 +4,13 @@
 #include "defs.h"
 #include "Object.h"
 
+class Game;
+
 class Entity: public Object {
 public:
-    Entity():
-    _ended(0) {
+    Entity(Game* game):
+    _ended(0),
+    _game(game) {
     }
     virtual ~Entity() {        
     }
@@ -21,6 +24,7 @@ public:
     
 protected:
     bool _ended;
+    Game* _game;
     
 private:
     Entity(const Entity&);

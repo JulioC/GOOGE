@@ -25,8 +25,6 @@ public:
 protected:
     Vector _position;
     
-    Game* _game;
-    
 private:
     Label(const Label&);
     const Label& operator=(const Label&);
