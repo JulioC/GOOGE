@@ -27,7 +27,7 @@ private:
     const Log& operator=(const Log&);
     ~Log();
     
-    static void log(const char* description, bool error, const Object* caller);
+    static void log(const Object* caller, const char* description, bool error=false);
     
     static void write(const char* message);
         

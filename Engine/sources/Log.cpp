@@ -16,7 +16,7 @@ void Log::message(const Object* caller, const char* format, ...) {
     vsprintf(description, format, args);
     va_end(args);
     
-    log(description, false, caller);
+    log(caller, description);
 }
 
 void Log::error(const Object* caller, const char* format, ...) {
@@ -26,7 +26,7 @@ void Log::error(const Object* caller, const char* format, ...) {
     vsprintf(description, format, args);
     va_end(args);
     
-    log(description, true, caller);
+    log(caller, description, true);
 } 
 
 void Log::setFile(const char* filename) {
@@ -37,7 +37,7 @@ void Log::setLevel(level lvl) {
     _level = lvl;
 }
 
-void Log::log(const char* description, bool error, const Object* caller) {
+void Log::log(const Object* caller, const char* description, bool error) {
     time_t rawtime;
     struct tm* timeinfo;
     time(&rawtime);
