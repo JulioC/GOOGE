@@ -16,14 +16,18 @@ void Surface::draw(const Vector& position) {
     SDL_BlitSurface(_surface, NULL, _screen, &offset);
 }
 
-void Surface::draw(const Vector& position, const Vector& size) {
+void Surface::draw(const Vector& position, const Vector& clip_position, const Vector& clip_size) {
     SDL_Rect offset;
     offset.x = position.x();
     offset.y = position.y();
-    offset.w = size.x();
-    offset.h = size.y();
     
-    SDL_BlitSurface(_surface, NULL, _screen, &offset);
+    SDL_Rect clip;
+    clip.x = clip_position.x();
+    clip.y = clip_position.y();
+    clip.w = clip_size.x();
+    clip.h = clip_size.y();
+    
+    SDL_BlitSurface(_surface, &clip, _screen, &offset);
 }
 
 int Surface::width() const {

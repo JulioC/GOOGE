@@ -10,7 +10,7 @@ public:
     virtual ~Surface();
 
     void draw(const Vector& position);
-    void draw(const Vector& position, const Vector& size);
+    void draw(const Vector& position, const Vector& clip_position, const Vector& clip_size);
 
     int width() const;
     int height() const;

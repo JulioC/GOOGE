@@ -13,6 +13,13 @@ public:
 
     virtual void update();
     virtual void draw();
+    
+    void setFrame(int n);
+    void setFrame(int col, int row);
+
+    int frameCount() const;
+    int colCount() const;
+    int rowCount() const;
 
 protected:
     Image* _image;
@@ -21,10 +28,14 @@ protected:
 private:    
     Sprite(const Sprite&);
     const Sprite& operator=(const Sprite&);
+
+    int _cols;
+    int _rows;
     
+    Vector _currentFrame;
+
     Vector _frameSize;
     
-
 };
 
 #endif	/* SPRITE_H */
