@@ -10,10 +10,6 @@ public:
 
     const char* filename() const;
     
-    int width() const;
-    int height() const;
-    Vector size() const;
-    
 private:
     Image(const Image&);
     const Image& operator=(const Image&);

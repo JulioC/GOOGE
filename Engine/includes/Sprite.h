@@ -15,8 +15,8 @@ public:
     virtual void draw();
 
 protected:
-    Vector _position;
     Image* _image;
+    Vector _position;
 
 private:    
     Sprite(const Sprite&);

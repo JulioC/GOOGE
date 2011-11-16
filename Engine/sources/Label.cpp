@@ -5,10 +5,10 @@
 Label::Label(Game* game, const char* fontname, int size):
 Entity(game),
 _position(0, 0),
+_message(NULL),
 _color(),
 _font(NULL),
-_text(NULL),
-_message(NULL) {
+_text(NULL) {
     int len = strlen(fontname);
     char* identifier = new char[len + 16]; // additional space for the number
     sprintf(identifier, "%s:%i", fontname, size);

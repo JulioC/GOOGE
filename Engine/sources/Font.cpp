@@ -1,8 +1,8 @@
 #include "Font.h"
 
 Font::Font(SDL_Surface* screen, const char* filename, int size):
-_filename(NULL),
 _size(size),
+_filename(NULL),
 _screen(screen),
 _font(NULL) {    
     _filename = new char[sizeof(filename)];

@@ -9,7 +9,7 @@ _indexes() {
 }
 
 Layer::~Layer() {
-    for(int i = 0; i < _entities.size(); i++) {
+    for(std::vector<Entity*>::size_type i = 0; i < _entities.size(); i++) {
         if(_entities[i] != NULL) {
             delete _entities[i];
         }
@@ -17,7 +17,7 @@ Layer::~Layer() {
 }
 
 void Layer::update() {
-    for(int i = 0; i < _entities.size(); i++) {
+    for(std::vector<Entity*>::size_type i = 0; i < _entities.size(); i++) {
         if(_entities[i] != NULL) {
             if(_entities[i]->ended()) {
                 removeEntity(i);
@@ -30,7 +30,7 @@ void Layer::update() {
 }
 
 void Layer::draw() {
-    for(int i = 0; i < _entities.size(); i++) {
+    for(std::vector<Entity*>::size_type i = 0; i < _entities.size(); i++) {
         if(_entities[i] != NULL) {
             _entities[i]->draw();
         }

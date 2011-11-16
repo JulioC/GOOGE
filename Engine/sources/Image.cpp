@@ -35,16 +35,3 @@ Image::~Image() {
 const char* Image::filename() const {
     return _filename;
 }
-
-int Image::width() const {
-    return _surface->w;
-}
-
-int Image::height() const {
-    return _surface->h;
-}
-
-Vector Image::size() const {
-    return Vector(_surface->w, _surface->h);
-}
-

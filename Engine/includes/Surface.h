@@ -10,8 +10,12 @@ public:
     virtual ~Surface();
 
     void draw(const Vector& position);
-    //@TODO: implement draw() variants
+    void draw(const Vector& position, const Vector& size);
 
+    int width() const;
+    int height() const;
+    Vector size() const;
+    
 protected:
     SDL_Surface* _surface;
 
@@ -24,4 +28,3 @@ private:
 };
 
 #endif	/* SURFACE_H */
-

@@ -18,11 +18,11 @@ _terminated(false),
 _keystateCount(0),
 _keyState(NULL),
 _prevKeyState(NULL),
-_event(),
 _mouseState(0),
 _prevMouseState(0),
 _mousePosition(NULL),
-_prevMousePosition(NULL) {
+_prevMousePosition(NULL),
+_event() {
 }
 
 InputManager::~InputManager() {
