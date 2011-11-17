@@ -13,11 +13,7 @@ typedef SDL_Color Color;
 class Exception {
 public:
     Exception(const char* message) {
-        _message = new char[sizeof(message)];
-        strcpy(_message, message);
-    }
-    virtual ~Exception() {
-        delete[] _message;
+         strcpy(_message, message);
     }
     
     const char* message() {
@@ -25,7 +21,7 @@ public:
     }
     
 private:
-    char* _message;
+    char _message[256];
 };
 
 class InitException : public Exception {
