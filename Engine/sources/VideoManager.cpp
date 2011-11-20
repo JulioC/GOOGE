@@ -76,7 +76,7 @@ void VideoManager::release() {
     
     SDL_QuitSubSystem(SDL_INIT_VIDEO);
 
-    Log::message(this, "VideoManager released");
+        Log::message(this, "VideoManager released");
     
     _screen = NULL;
 }
@@ -85,6 +85,8 @@ void VideoManager::update() {
     if(!SDL_Flip(_screen) == -1) {
         Log::error(this, "Failed to vsync: %s", SDL_GetError());
     }
+    
+    SDL_FillRect(_screen, 0, 0);
 }
 
 bool VideoManager::initiated() const {
