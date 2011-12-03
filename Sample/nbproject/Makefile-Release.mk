@@ -37,8 +37,8 @@ OBJECTFILES= \
 	${OBJECTDIR}/PlayerSprite.o \
 	${OBJECTDIR}/Stage.o \
 	${OBJECTDIR}/main.o \
-	${OBJECTDIR}/Shape.o \
 	${OBJECTDIR}/Sample.o \
+	${OBJECTDIR}/Body.o \
 	${OBJECTDIR}/Level.o
 
 
@@ -83,15 +83,15 @@ ${OBJECTDIR}/main.o: main.cpp
 	${RM} $@.d
 	$(COMPILE.cc) -O2 -I../Engine/includes -Iinclude -MMD -MP -MF $@.d -o ${OBJECTDIR}/main.o main.cpp
 
-${OBJECTDIR}/Shape.o: Shape.cpp 
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} $@.d
-	$(COMPILE.cc) -O2 -I../Engine/includes -Iinclude -MMD -MP -MF $@.d -o ${OBJECTDIR}/Shape.o Shape.cpp
-
 ${OBJECTDIR}/Sample.o: Sample.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} $@.d
 	$(COMPILE.cc) -O2 -I../Engine/includes -Iinclude -MMD -MP -MF $@.d -o ${OBJECTDIR}/Sample.o Sample.cpp
+
+${OBJECTDIR}/Body.o: Body.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} $@.d
+	$(COMPILE.cc) -O2 -I../Engine/includes -Iinclude -MMD -MP -MF $@.d -o ${OBJECTDIR}/Body.o Body.cpp
 
 ${OBJECTDIR}/Level.o: Level.cpp 
 	${MKDIR} -p ${OBJECTDIR}

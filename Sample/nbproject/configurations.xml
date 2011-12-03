@@ -4,10 +4,10 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
+      <itemPath>Body.h</itemPath>
       <itemPath>Level.h</itemPath>
       <itemPath>PlayerSprite.h</itemPath>
       <itemPath>Sample.h</itemPath>
-      <itemPath>Shape.h</itemPath>
       <itemPath>Stage.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
@@ -17,10 +17,10 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
+      <itemPath>Body.cpp</itemPath>
       <itemPath>Level.cpp</itemPath>
       <itemPath>PlayerSprite.cpp</itemPath>
       <itemPath>Sample.cpp</itemPath>
-      <itemPath>Shape.cpp</itemPath>
       <itemPath>Stage.cpp</itemPath>
       <itemPath>main.cpp</itemPath>
     </logicalFolder>
