@@ -3,7 +3,7 @@
 
 #include "Game.h"
 
-class Sample : public Game {
+class Sample: public Game {
 public:
     Sample();
     ~Sample();
