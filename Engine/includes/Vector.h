@@ -3,6 +3,7 @@
 
 class Vector {
 public:
+    Vector();
     Vector(float x, float y);
     Vector(const Vector& orig);    
     ~Vector();
