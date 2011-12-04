@@ -2,9 +2,8 @@
 #include "Game.h"
 #include "Sample.h"
 
-using namespace std;
-
 int main(int argc, char** argv) {
+    Log::setLevel(Log::level_high);
     Game* game = new Sample();
     
     try {
@@ -15,7 +14,6 @@ int main(int argc, char** argv) {
         }
     }
     catch(Exception e) {
-        game->cleanup();
     }
 
     game->cleanup();

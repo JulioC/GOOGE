@@ -2,8 +2,9 @@
 #include "Game.h"
 
 PlayerSprite::PlayerSprite(Game* game, Vector position) : 
-Sprite(game, "Player.png", position), 
-_speed(0.4f) {
+Sprite(game, "tiles.jpg", position, Vector(40, 40)), 
+_speed(0.4f),
+current(0) {
     
 }
 
@@ -28,6 +29,10 @@ void PlayerSprite::update() {
     
     if(input->keyDown(SDLK_LEFT)) {
         posMod += Vector(-_speed, 0);
+    }
+    
+    if(input->keyPressed(SDLK_SPACE)) {
+        setFrame(current++);
     }
     
     _position += posMod;

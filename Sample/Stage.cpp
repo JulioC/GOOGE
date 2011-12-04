@@ -1,8 +1,8 @@
-#include "MapLayer.h"
+#include "Stage.h"
 #include "PlayerSprite.h"
 #include "Label.h"
 
-MapLayer::MapLayer(Game* game) : 
+Stage::Stage(Game* game) : 
 Layer(game) {
     
     Vector initialPos(0,0);
@@ -18,6 +18,6 @@ Layer(game) {
     
 }
 
-MapLayer::~MapLayer() {
+Stage::~Stage() {
 }
 

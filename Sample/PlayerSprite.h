@@ -16,6 +16,7 @@ private:
     
     float _speed;
 
+    int current;
 };
 
 #endif  /* PLAYERSPRITE_H */

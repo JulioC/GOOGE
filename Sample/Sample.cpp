@@ -1,5 +1,5 @@
 #include "Sample.h"
-#include "FirstScene.h"
+#include "Level.h"
 
 Sample::Sample() {
 }
@@ -10,7 +10,7 @@ Sample::~Sample() {
 void Sample::setup() {
     Game::setup();
     
-    Scene* firstScene = new FirstScene(this);
-    Game::setNextScene(firstScene);
+    Scene* level = new Level(this);
+    setNextScene(level);
     
 }

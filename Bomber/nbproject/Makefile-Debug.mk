@@ -34,9 +34,11 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
+	${OBJECTDIR}/Stage.o \
 	${OBJECTDIR}/main.o \
-	${OBJECTDIR}/sources/Intro.o \
-	${OBJECTDIR}/sources/Bomber.o
+	${OBJECTDIR}/Tile.o \
+	${OBJECTDIR}/Bomber.o \
+	${OBJECTDIR}/Level.o
 
 
 # C Compiler Flags
@@ -65,20 +67,30 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/bomber: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/bomber ${OBJECTFILES} ${LDLIBSOPTIONS} 
 
+${OBJECTDIR}/Stage.o: Stage.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} $@.d
+	$(COMPILE.cc) -g -I../Engine/includes -Iincludes -MMD -MP -MF $@.d -o ${OBJECTDIR}/Stage.o Stage.cpp
+
 ${OBJECTDIR}/main.o: main.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} $@.d
 	$(COMPILE.cc) -g -I../Engine/includes -Iincludes -MMD -MP -MF $@.d -o ${OBJECTDIR}/main.o main.cpp
 
-${OBJECTDIR}/sources/Intro.o: sources/Intro.cpp 
-	${MKDIR} -p ${OBJECTDIR}/sources
+${OBJECTDIR}/Tile.o: Tile.cpp 
+	${MKDIR} -p ${OBJECTDIR}
 	${RM} $@.d
-	$(COMPILE.cc) -g -I../Engine/includes -Iincludes -MMD -MP -MF $@.d -o ${OBJECTDIR}/sources/Intro.o sources/Intro.cpp
+	$(COMPILE.cc) -g -I../Engine/includes -Iincludes -MMD -MP -MF $@.d -o ${OBJECTDIR}/Tile.o Tile.cpp
 
-${OBJECTDIR}/sources/Bomber.o: sources/Bomber.cpp 
-	${MKDIR} -p ${OBJECTDIR}/sources
+${OBJECTDIR}/Bomber.o: Bomber.cpp 
+	${MKDIR} -p ${OBJECTDIR}
 	${RM} $@.d
-	$(COMPILE.cc) -g -I../Engine/includes -Iincludes -MMD -MP -MF $@.d -o ${OBJECTDIR}/sources/Bomber.o sources/Bomber.cpp
+	$(COMPILE.cc) -g -I../Engine/includes -Iincludes -MMD -MP -MF $@.d -o ${OBJECTDIR}/Bomber.o Bomber.cpp
+
+${OBJECTDIR}/Level.o: Level.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} $@.d
+	$(COMPILE.cc) -g -I../Engine/includes -Iincludes -MMD -MP -MF $@.d -o ${OBJECTDIR}/Level.o Level.cpp
 
 # Subprojects
 .build-subprojects:

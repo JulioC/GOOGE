@@ -2,6 +2,11 @@
 
 #include <cmath>
 
+Vector::Vector():
+_x(0),
+_y(0) {
+}
+
 Vector::Vector(float x, float y):
 _x(x),
 _y(y) {
