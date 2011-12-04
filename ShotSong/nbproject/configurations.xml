@@ -4,6 +4,7 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
+      <itemPath>Box.h</itemPath>
       <itemPath>FirstLevel.h</itemPath>
       <itemPath>Level.h</itemPath>
       <itemPath>MapLayer.h</itemPath>
@@ -17,6 +18,9 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
+      <itemPath>Box.cpp</itemPath>
+      <itemPath>CoinSprite.cpp</itemPath>
+      <itemPath>CoinSprite.h</itemPath>
       <itemPath>FirstLevel.cpp</itemPath>
       <itemPath>Level.cpp</itemPath>
       <itemPath>MapLayer.cpp</itemPath>

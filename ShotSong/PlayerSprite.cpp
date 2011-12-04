@@ -2,7 +2,7 @@
 #include "Game.h"
 
 PlayerSprite::PlayerSprite(Game* game, Vector position) : 
-Sprite(game, "./contents/warrior.png", position, Vector(28, 38)), 
+Box(game, "./contents/warrior.png", position, Vector(28, 38), Vector(28, 38)), 
 _speed(0.4f),
 currentFrame(0),
 frameTimer(0) {
@@ -53,6 +53,7 @@ void PlayerSprite::update() {
     else {
         currentFrame = 0;
     }
+    
     _position += posMod;
 }
 

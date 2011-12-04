@@ -34,12 +34,14 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
+	${OBJECTDIR}/Box.o \
 	${OBJECTDIR}/PlayerSprite.o \
 	${OBJECTDIR}/main.o \
 	${OBJECTDIR}/ShotSong.o \
 	${OBJECTDIR}/MapLayer.o \
 	${OBJECTDIR}/FirstLevel.o \
-	${OBJECTDIR}/Level.o
+	${OBJECTDIR}/Level.o \
+	${OBJECTDIR}/CoinSprite.o
 
 
 # C Compiler Flags
@@ -67,6 +69,11 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/shotsong: ../Engine/dist/Debug/GNU-Li
 ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/shotsong: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/shotsong ${OBJECTFILES} ${LDLIBSOPTIONS} 
+
+${OBJECTDIR}/Box.o: Box.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} $@.d
+	$(COMPILE.cc) -g -I../Engine/includes -Iincludes -MMD -MP -MF $@.d -o ${OBJECTDIR}/Box.o Box.cpp
 
 ${OBJECTDIR}/PlayerSprite.o: PlayerSprite.cpp 
 	${MKDIR} -p ${OBJECTDIR}
@@ -97,6 +104,11 @@ ${OBJECTDIR}/Level.o: Level.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} $@.d
 	$(COMPILE.cc) -g -I../Engine/includes -Iincludes -MMD -MP -MF $@.d -o ${OBJECTDIR}/Level.o Level.cpp
+
+${OBJECTDIR}/CoinSprite.o: CoinSprite.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} $@.d
+	$(COMPILE.cc) -g -I../Engine/includes -Iincludes -MMD -MP -MF $@.d -o ${OBJECTDIR}/CoinSprite.o CoinSprite.cpp
 
 # Subprojects
 .build-subprojects:

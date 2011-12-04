@@ -1,9 +1,9 @@
 #ifndef PLAYERSPRITE_H
 #define PLAYERSPRITE_H
 
-#include "Sprite.h"
+#include "Box.h"
 
-class PlayerSprite : public Sprite {
+class PlayerSprite : public Box {
 public:
     PlayerSprite(Game* game, Vector position);
     virtual ~PlayerSprite();
