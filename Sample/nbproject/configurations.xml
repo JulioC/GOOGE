@@ -4,7 +4,7 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
-      <itemPath>Body.h</itemPath>
+      <itemPath>Box.h</itemPath>
       <itemPath>Level.h</itemPath>
       <itemPath>PlayerSprite.h</itemPath>
       <itemPath>Sample.h</itemPath>
@@ -17,7 +17,7 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
-      <itemPath>Body.cpp</itemPath>
+      <itemPath>Box.cpp</itemPath>
       <itemPath>Level.cpp</itemPath>
       <itemPath>PlayerSprite.cpp</itemPath>
       <itemPath>Sample.cpp</itemPath>
@@ -35,6 +35,8 @@
                    kind="IMPORTANT_FILES_FOLDER">
       <itemPath>Makefile</itemPath>
     </logicalFolder>
+    <itemPath>Body.cpp</itemPath>
+    <itemPath>Body.h</itemPath>
   </logicalFolder>
   <projectmakefile>Makefile</projectmakefile>
   <confs>

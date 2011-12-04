@@ -34,6 +34,7 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
+	${OBJECTDIR}/Box.o \
 	${OBJECTDIR}/PlayerSprite.o \
 	${OBJECTDIR}/Stage.o \
 	${OBJECTDIR}/main.o \
@@ -67,6 +68,11 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/sample: ../Engine/dist/Release/GNU-Li
 ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/sample: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/sample ${OBJECTFILES} ${LDLIBSOPTIONS} 
+
+${OBJECTDIR}/Box.o: Box.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} $@.d
+	$(COMPILE.cc) -O2 -I../Engine/includes -Iinclude -MMD -MP -MF $@.d -o ${OBJECTDIR}/Box.o Box.cpp
 
 ${OBJECTDIR}/PlayerSprite.o: PlayerSprite.cpp 
 	${MKDIR} -p ${OBJECTDIR}
