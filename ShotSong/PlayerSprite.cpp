@@ -3,7 +3,8 @@
 
 PlayerSprite::PlayerSprite(Game* game, Vector position) : 
 Sprite(game, "./contents/warrior.png", position, Vector(28, 38)), 
-_speed(0.4f) {
+_speed(0.4f),
+currentFrame(0) {
     setFrame(0, 2);
 }
 
@@ -34,11 +35,19 @@ void PlayerSprite::update() {
         playerDir = FRAMELEFT;
     }
     
+    if(posMod != Vector(0, 0)) {
+        if(currentFrame==3) {
+            currentFrame=0;
+        }
+        else {
+            currentFrame++;
+        }
+    }
     _position += posMod;
 }
 
 void PlayerSprite::draw() {
-    setFrame(0, playerDir);
+    setFrame(currentFrame, playerDir);
     
     Sprite::draw();
 }

@@ -25,6 +25,8 @@ private:
     };
     
     frameDir playerDir;
+    
+    int currentFrame;
 
 };
 
