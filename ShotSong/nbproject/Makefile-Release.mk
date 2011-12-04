@@ -34,10 +34,11 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
-	${OBJECTDIR}/LevelTest.o \
+	${OBJECTDIR}/PlayerSprite.o \
 	${OBJECTDIR}/main.o \
 	${OBJECTDIR}/ShotSong.o \
-	${OBJECTDIR}/Background.o \
+	${OBJECTDIR}/MapLayer.o \
+	${OBJECTDIR}/FirstLevel.o \
 	${OBJECTDIR}/Level.o
 
 
@@ -67,10 +68,10 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/shotsong: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/shotsong ${OBJECTFILES} ${LDLIBSOPTIONS} 
 
-${OBJECTDIR}/LevelTest.o: LevelTest.cpp 
+${OBJECTDIR}/PlayerSprite.o: PlayerSprite.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} $@.d
-	$(COMPILE.cc) -O2 -I../Engine/includes -Iincludes -MMD -MP -MF $@.d -o ${OBJECTDIR}/LevelTest.o LevelTest.cpp
+	$(COMPILE.cc) -O2 -I../Engine/includes -Iincludes -MMD -MP -MF $@.d -o ${OBJECTDIR}/PlayerSprite.o PlayerSprite.cpp
 
 ${OBJECTDIR}/main.o: main.cpp 
 	${MKDIR} -p ${OBJECTDIR}
@@ -82,10 +83,15 @@ ${OBJECTDIR}/ShotSong.o: ShotSong.cpp
 	${RM} $@.d
 	$(COMPILE.cc) -O2 -I../Engine/includes -Iincludes -MMD -MP -MF $@.d -o ${OBJECTDIR}/ShotSong.o ShotSong.cpp
 
-${OBJECTDIR}/Background.o: Background.cpp 
+${OBJECTDIR}/MapLayer.o: MapLayer.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} $@.d
-	$(COMPILE.cc) -O2 -I../Engine/includes -Iincludes -MMD -MP -MF $@.d -o ${OBJECTDIR}/Background.o Background.cpp
+	$(COMPILE.cc) -O2 -I../Engine/includes -Iincludes -MMD -MP -MF $@.d -o ${OBJECTDIR}/MapLayer.o MapLayer.cpp
+
+${OBJECTDIR}/FirstLevel.o: FirstLevel.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} $@.d
+	$(COMPILE.cc) -O2 -I../Engine/includes -Iincludes -MMD -MP -MF $@.d -o ${OBJECTDIR}/FirstLevel.o FirstLevel.cpp
 
 ${OBJECTDIR}/Level.o: Level.cpp 
 	${MKDIR} -p ${OBJECTDIR}

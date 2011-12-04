@@ -1,17 +1,20 @@
 #ifndef SHOTSONG_H
-#define	SHOTSONG_H
+#define SHOTSONG_H
+
 #include "Game.h"
 
-class ShotSong : public Game {
+class ShotSong: public Game {
 public:
     ShotSong();
-    bool setup();
-
-private:
-    ShotSong(const ShotSong& orig);
     virtual ~ShotSong();
     
+    void setup();
+
+private:
+    ShotSong(const ShotSong&);
+    const ShotSong& operator=(const ShotSong&);
+
 };
 
-#endif	/* SHOTSONG_H */
+#endif  /* SHOTSONG_H */
 

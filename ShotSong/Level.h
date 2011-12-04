@@ -1,23 +1,18 @@
 #ifndef LEVEL_H
-#define	LEVEL_H
+#define LEVEL_H
 
 #include "Scene.h"
 
-class Game;
-
-class Level : public Scene {
+class Level: public Scene {
 public:
-    Level(Game* parent);
+    Level(Game* game);
     virtual ~Level();
-    
-    virtual bool init();
-    
-private:
 
-    Level(const Level& orig);
-    
+private:
+    Level(const Level&);
+    const Level& operator=(const Level&);
 
 };
 
-#endif	/* LEVEL_H */
+#endif  /* LEVEL_H */
 

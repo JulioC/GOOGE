@@ -1,23 +1,15 @@
 #include "ShotSong.h"
-#include "LevelTest.h"
+#include "FirstLevel.h"
 
 ShotSong::ShotSong() {
-    
 }
 
 ShotSong::~ShotSong() {
-    
 }
 
-bool ShotSong::setup() {
-    if(!Game::setup()) {
-        return false;
-    }
+void ShotSong::setup() {
+    Game::setup();
     
-    setTitle("Shot Song");
-    
-    Scene* leveltest = new LevelTest(this);
-    setNextScene(leveltest);
-    
-    return true;
+    Scene* firstLevel = new FirstLevel(this);
+    setNextScene(firstLevel);
 }
