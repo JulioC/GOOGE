@@ -27,6 +27,7 @@ private:
     frameDir playerDir;
     
     int currentFrame;
+    int frameTimer;
 
 };
 

@@ -4,7 +4,8 @@
 PlayerSprite::PlayerSprite(Game* game, Vector position) : 
 Sprite(game, "./contents/warrior.png", position, Vector(28, 38)), 
 _speed(0.4f),
-currentFrame(0) {
+currentFrame(0),
+frameTimer(0) {
     setFrame(0, 2);
 }
 
@@ -36,12 +37,21 @@ void PlayerSprite::update() {
     }
     
     if(posMod != Vector(0, 0)) {
-        if(currentFrame==3) {
-            currentFrame=0;
+        if(frameTimer>60) {
+            frameTimer = 0;
+            if(currentFrame==3) {
+                currentFrame=0;
+            }
+            else {
+                currentFrame++;
+            }
         }
         else {
-            currentFrame++;
+            frameTimer++;
         }
+    }
+    else {
+        currentFrame = 0;
     }
     _position += posMod;
 }
